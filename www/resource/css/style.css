@@ -1,4 +1,18 @@
 /* Empty. Add your own CSS if you like */
+@import url(https://fonts.googleapis.com/css?family=Philosopher);
+@import url(https://fonts.googleapis.com/css?family=Overlock);
+
+.title {
+  color: #c7827a !important;
+  font-weight: bold !important;
+  font-size: 5vw !important;
+  font-family: 'Philosopher', sans-serif;
+}
+
+body {
+  font-family: 'Overlock', cursive;
+}
+
 .bar-stable {
     background-color: white !important;
 }
