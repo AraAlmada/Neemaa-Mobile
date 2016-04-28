@@ -1,0 +1,16 @@
+<ion-view view-title="Neemaa">
+  <ion-content class="content-register">
+    <h1>Crée ton Compte :</h1>
+    <form>
+      <input type="email" class="text-form" data-ng-model="register.mail" placeholder="Email" />
+      <input type="password" class="text-form" data-ng-model="register.password" placeholder="Mot de passe" />
+      <input type="password" class="text-form" data-ng-model="register.password_confirm" placeholder="Confirmation mot de passe" />
+      <p>Déja inscrit ? <a ui-sref="app.login">Clique ici</a></p>
+    </form>
+  </ion-content>
+  <div class="bar bar-footer bar-balanced">
+    <div class="title">
+      <button class="button button-large button-positive neemaa-button-footer" data-ng-click="register(register)">CONFIRMER</button>
+    </div>
+  </div>
+</ion-view>
