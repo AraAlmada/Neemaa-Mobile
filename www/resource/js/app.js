@@ -31,12 +31,39 @@ var appContext = angular.module('neemaa', ['ionic'])
     templateUrl: 'app/menu/menu.html',
     controller: 'MenuController'
   })
-
   .state('app.home', {
     url: '/home',
     views: {
       'menuContent': {
-        templateUrl: 'app/home/home.html'
+        templateUrl: 'app/home/home.html',
+        controller: 'HomeController'
+      }
+    }
+  })
+  .state('app.register', {
+    url: '/register',
+    views: {
+      'menuContent': {
+        templateUrl: 'app/register/register.html',
+        controller: 'RegisterController'
+      }
+    }
+  })
+  .state('app.search', {
+    url: '/search',
+    views: {
+      'menuContent': {
+        templateUrl: 'app/search/search.html',
+        controller: 'SearchController'
+      }
+    }
+  })
+  .state('app.listSearch', {
+    url: '/list',
+    views: {
+      'menuContent': {
+        templateUrl: 'app/list/list.html',
+        controller: 'ListController'
       }
     }
   });

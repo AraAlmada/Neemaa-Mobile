@@ -1,0 +1,20 @@
+<ion-view view-title="Rechercher">
+    <ion-content class="content-search">
+        <h1>RENDEZ-VOUS A L'INSTANT</h1>
+        <h2>Avec les meilleurs stylistes de la beauté afro.</h2>
+        <form>
+            <input type="text" class="text-form" data-ng-model="search.cp" placeholder="* Où ? Code Postal ?" />
+            <input type="date" class="text-form" data-ng-model="search.date" />
+            <select data-ng-model="search.service" class="text-form-select">
+                <option value="Service1">Service1</option>
+                <option value="Service2">Service2</option>
+                <option value="Service3">Service3</option>
+            </select>
+        </form>
+    </ion-content>
+    <div class="bar bar-footer bar-balanced">
+        <div class="title">
+            <button class="button button-large button-positive neemaa-button-footer" data-ng-click="search(search)">RESERVER</button>
+        </div>
+    </div>
+</ion-view>
