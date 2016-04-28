@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-var appContext = angular.module('neemaa', ['ionic', 'ionic-toast'])
+var appContext = angular.module('neemaa', ['ionic', 'ionic-toast', 'LocalStorageModule'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -25,13 +25,13 @@ var appContext = angular.module('neemaa', ['ionic', 'ionic-toast'])
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
 
-    .state('app', {
+  .state('app', {
     url: '/app',
     abstract: true,
     templateUrl: 'app/menu/menu.html',
     controller: 'MenuController'
   })
-   .state('startup', {
+  .state('startup', {
     url: '/startup',
     templateUrl: 'app/startup/startup.html',
     controller: 'StartupController'
@@ -73,5 +73,5 @@ var appContext = angular.module('neemaa', ['ionic', 'ionic-toast'])
     }
   });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/home');
+  $urlRouterProvider.otherwise('/startup');
 });
