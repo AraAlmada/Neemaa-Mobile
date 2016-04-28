@@ -31,6 +31,11 @@ var appContext = angular.module('neemaa', ['ionic', 'ionic-toast'])
     templateUrl: 'app/menu/menu.html',
     controller: 'MenuController'
   })
+   .state('startup', {
+    url: '/startup',
+    templateUrl: 'app/startup/startup.html',
+    controller: 'StartupController'
+  })
   .state('app.home', {
     url: '/home',
     views: {

@@ -1,3 +1,4 @@
+
 /* Empty. Add your own CSS if you like */
 @import url(https://fonts.googleapis.com/css?family=Philosopher);
 @import url(https://fonts.googleapis.com/css?family=Overlock);
@@ -99,3 +100,21 @@ a {
     font-size: 4vw;
 }
 
+/* Empty. Add your own CSS if you like */
+.menu-bar {
+  background-color: #C9857C;
+}
+.btn-menu{
+  color: #000 !important;
+}
+.title-menu {
+    font-size: 22px;
+    display: block;
+    position: relative;
+    text-align: center;
+}
+.menu-bar .title.title-center.header-item{
+  background-image  : url('../images/title.png');
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
