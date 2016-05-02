@@ -54,6 +54,15 @@ var appContext = angular.module('neemaa', ['ionic', 'ionic-toast', 'LocalStorage
       }
     }
   })
+  .state('app.login', {
+    url: '/login',
+    views: {
+      'menuContent': {
+        templateUrl: 'app/login/login.html',
+        controller: 'LoginController'
+      }
+    }
+  })
   .state('app.search', {
     url: '/search',
     views: {
@@ -69,6 +78,33 @@ var appContext = angular.module('neemaa', ['ionic', 'ionic-toast', 'LocalStorage
       'menuContent': {
         templateUrl: 'app/list/list.html',
         controller: 'ListController'
+      }
+    }
+  })
+  .state('app.partnerNfo', {
+    url: '/partner-info',
+    views: {
+      'menuContent': {
+        templateUrl: 'app/partner_nfo/partner_nfo.html',
+        controller: 'PartnerNfoController'
+      }
+    }
+  })
+  .state('app.userProfil', {
+    url: '/user_profil',
+    views: {
+      'menuContent': {
+        templateUrl: 'app/user_profil/user_profil.html',
+        controller: 'UserProfilController'
+      }
+    }
+  })
+  .state('app.partnerProfil', {
+    url: '/partner_profil',
+    views: {
+      'menuContent': {
+        templateUrl: 'app/partner_profil/partner_profil.html',
+        controller: 'PartnerProfilController'
       }
     }
   });

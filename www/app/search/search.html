@@ -3,13 +3,19 @@
         <h1>RENDEZ-VOUS A L'INSTANT</h1>
         <h2>Avec les meilleurs stylistes de la beauté afro.</h2>
         <form>
-            <input type="text" class="text-form" data-ng-model="search.cp" placeholder="* Où ? Code Postal ?" />
-            <input type="date" class="text-form" data-ng-model="search.date" />
+            <input type="text" class="text-form" data-ng-model="search.cp" placeholder="* Où tu veux la prestation ? (Code Postal)" />
             <select data-ng-model="search.service" class="text-form-select">
-                <option value="Service1">Service1</option>
-                <option value="Service2">Service2</option>
-                <option value="Service3">Service3</option>
+              <option value="" selected disabled>* Service Souhaité</option>
+              <option value="Cheveux" disabled>Cheveux</option>
+              <option data-ng-repeat="service in serviceList.Cheveux">{{ service }}</option>
+              <option value="Peau" disabled>Peau</option>
+              <option data-ng-repeat="service in serviceList.Peau">{{ service }}</option>
+              <option value="Mains/Pieds" disabled>Mains/Pieds</option>
+              <option data-ng-repeat="service in serviceList.Mains_Pieds">{{ service }}</option>
+              <option value="Life-Style" disabled>Life-Style</option>
+              <option data-ng-repeat="service in serviceList.Life_Style">{{ service }}</option>
             </select>
+            <p>* Champs Obligatoires</p>
         </form>
     </ion-content>
     <div class="bar bar-footer bar-balanced">
@@ -18,3 +24,5 @@
         </div>
     </div>
 </ion-view>
+
+

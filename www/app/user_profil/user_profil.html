@@ -1,0 +1,55 @@
+<ion-view view-title="NEEMAA">
+  <ion-content class="content-user-profil">
+    <form>
+      <div class="row">
+        <div class="col">
+          <img class="profil_picture" src="https://pixabay.com/static/uploads/photo/2014/04/02/14/07/barber-shop-306199_960_720.png" /><br>
+          <input type="radio" data-ng-model="user_profil.gender" value="female" checked><span class="white-color"> Femme</span><br>
+          <input type="radio" data-ng-model="user_profil.gender" value="male"><span class="white-color"> Homme</span><br>
+        </div>
+        <div class="col">
+          <input type="text" data-ng-model="user_profil.last_name" class="profil-text-form" placeholder="Prénom" >
+          <input type="text" data-ng-model="user_profil.first_name" class="profil-text-form" placeholder="Nom" >
+          <input type="email" data-ng-model="user_profil.mail" class="profil-text-form" placeholder="Email" >
+          <input type="tel" data-ng-model="user_profil.tel" class="profil-text-form" placeholder="mobile" >
+          <input type="text" data-ng-model="user_profil.adresse" class="profil-text-form" placeholder="Adresse" >
+          <input type="text" data-ng-model="user_profil.cp" class="profil-text-form" placeholder="Code Postal" >
+          <input type="date" data-ng-model="user_profil.birthdate" class="profil-text-form" placeholder="date de naissance" >
+          <a ui-sref="app.userProfil">Changer de mot de passe</a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <select data-ng-model="user_profil.skinType" class="text-form-select">
+            <option>Valu1</option>
+            <option>Valu1</option>
+            <option>Valu1</option>
+          </select>
+          <select data-ng-model="user_profil.skinColor" class="text-form-select">
+            <option>Valu1</option>
+            <option>Valu1</option>
+            <option>Valu1</option>
+          </select>
+          <select data-ng-model="user_profil.hairType" class="text-form-select">
+            <option>Valu1</option>
+            <option>Valu1</option>
+            <option>Valu1</option>
+          </select>
+          <select data-ng-model="user_profil.hairColor" class="text-form-select">
+            <option>Valu1</option>
+            <option>Valu1</option>
+            <option>Valu1</option>
+          </select>
+          <input type="radio" data-ng-model="user_profil.type" /><span class="white-color">Je veux m'inscrire comme NeemStyler (prestataire de service)</span>
+        </div>
+      </div>
+    </form>
+  </ion-content>
+  <div class="bar bar-footer bar-balanced">
+    <div class="title">
+      <button class="button button-large button-positive neemaa-button-footer" data-ng-click="user_profil(user_profil)">Enregistrer</button>
+    </div>
+  </div>
+</ion-view>
+
+

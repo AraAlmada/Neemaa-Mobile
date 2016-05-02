@@ -1,3 +1,3 @@
-appContext.controller('ListController',function($scope){
+appContext.controller('ListController',function($scope, ListService, $log){
     
 });

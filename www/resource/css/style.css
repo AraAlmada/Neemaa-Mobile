@@ -41,6 +41,20 @@ a {
     color: white;
 }
 
+.content-login {
+  padding: 5%;
+  background-color: #b04868 !important;
+}
+
+.content-login h1 {
+  color: white;
+  font-size: 5vw;
+}
+
+.content-login p {
+  color: white;
+}
+
 .text-form {
     width: 100%;
     margin-bottom: 3%;
@@ -78,6 +92,11 @@ a {
     background-color: #b04868 !important;
 }
 
+.content-search p {
+  color: white;
+  text-align: left;
+}
+
 .content-search h1 {
     margin-top: 25%;
     color: white;
@@ -91,6 +110,7 @@ a {
 }
 
 .content-list {
+    padding-top: 5%;
     text-align: center;
     background-color: #b04868 !important;
 }
@@ -99,22 +119,127 @@ a {
     color: white;
     font-size: 4vw;
 }
+.list {
+  border: 0;
+  margin: 0;
+}
 
-/* Empty. Add your own CSS if you like */
-.menu-bar {
-  background-color: #C9857C;
+.list a {
+  padding: 5%;
+  color: white;
+  background-color: #b04868 !important;
 }
-.btn-menu{
-  color: #000 !important;
+
+.list-left {
+  text-align: left !important;
 }
-.title-menu {
-    font-size: 22px;
-    display: block;
-    position: relative;
-    text-align: center;
+
+.list-right {
+  text-align: right !important;
 }
-.menu-bar .title.title-center.header-item{
-  background-image  : url('../images/title.png');
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
+
+.list-title {
+  color: #e8a9bb !important;
+}
+
+.list-service {
+
+}
+
+.star-color {
+  color: yellow;
+}
+
+.content-user-profil {
+  text-align: center;
+  padding: 5%;
+  background-color: #b04868 !important;
+}
+
+.profil_picture {
+  padding-top: 13%;
+  width: 100% !important;
+  text-align: left !important;
+  border-radius: 50%;
+}
+
+.profil-text-form {
+  width: 100%;
+  margin-bottom: 3%;
+  padding: 5% !important;
+  border-radius: 5px;
+}
+
+.white-color {
+  color: white;
+}
+
+.content-partner-nfo {
+  text-align: center;
+  padding: 5%;
+  background-color: #b04868 !important;
+}
+
+.partner_nfo {
+  padding-top: 20%;
+  color: white;
+  text-align: left;
+}
+
+.partner_nfo h2 {
+  color: white;
+  font-size: 5vw;
+}
+
+.partner_picture {
+  padding-top: 13%;
+  width: 60% !important;
+  text-align: left !important;
+  border-radius: 50%;
+}
+
+.partner-detail-picture {
+  width: 17%;
+}
+
+.partner_nfo_title {
+  color: #f0b4c5;
+  font-size: 4vw;
+  text-align: left;
+}
+
+.list-partner-nfo {
+  color: white;
+  text-align: left;
+}
+
+h4 {
+  font-size: 3vw;
+  text-align: left;
+  color: white;
+  text-decoration: underline;
+}
+
+.neemaa-partner-button-footer {
+  background-color: #f4b9c9 !important;
+  color: white;
+  width: 80%;
+  font-size: 5vw !important;
+  font-weight: bold;
+  height: 100%;
+}
+
+.content-partner-profil {
+  text-align: center;
+  padding: 5%;
+  background-color: #ffeeed !important;
+}
+
+.partner_bar_footer {
+  background-color: #ffeeed !important;
+}
+
+h3 {
+  font-size: 4vw;
+  text-align: left;
 }
