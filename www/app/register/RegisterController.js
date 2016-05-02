@@ -24,7 +24,7 @@ appContext.controller('RegisterController',function($scope, ionicToast, Register
       if (validation) {
         if (RegisterService.register(req)) {
           // TODO Login user
-          console.log('LoGIN');
+          console.log(req.type);
         } else {
           ionicToast.show('L\'inscription à échoué !', 'top', true, 2500);
         }
