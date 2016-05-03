@@ -3,9 +3,9 @@
         <p>NeemStyeres disponible selon ta sélection :</p>
         <p>92110 / Tisasge / 23.03.16 10h30</p>
         <ion-list>
-            <ion-item ui-sref="app.partnerNfo" class="list">
+            <ion-item ui-sref="app.partnerNfo" class="list" data-ng-repeat="p in listPartner">
                 <div class="row row-center">
-                    <div class="col list-left"><span class="list-title">Alexandre M.</span><br><span class="list-service">Service(s) : Tissage</span><br>
+                    <div class="col list-left"><span class="list-title">{{p.name}}</span><br><span class="list-service">Service(s) : {{p.service}}</span><br>
                         <i class="icon ion-star star-color"></i><i class="icon ion-star"></i><i class="icon ion-star"></i><i class="icon ion-star"></i><i class="icon ion-star"></i> 25 avis
                     </div>
                     <div class="col list-right">0.4km <i class="icon ion-chevron-right"></i></div>

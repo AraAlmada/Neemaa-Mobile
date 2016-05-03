@@ -1,8 +1,13 @@
 appContext.service('ListService',function(){
   return {
-    getPartner: function () {
-      return {
-        'Partner1': 'test'
+    getPartner: {
+      'Partner1': {
+        'name': 'Alexandre M.',
+        'service': 'Tissage'
+      },
+      'Partner2': {
+        'name': 'Dupond J.',
+        'service': 'Coiffure'
       }
     }
   }
