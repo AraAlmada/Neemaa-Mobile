@@ -1,7 +1,7 @@
-appContext.controller('RegisterController',function($scope, ionicToast, RegisterService){
+appContext.controller('RegisterController',function($scope, $window, ionicToast, RegisterService){
     $scope.register = function (req) {
       var validation = true;
-      if (req.mail == undefined) {
+      if (req.email == undefined) {
         ionicToast.show('L\'Email semble incorrect', 'top', true, 2500);
         validation = false;
       }
@@ -22,12 +22,21 @@ appContext.controller('RegisterController',function($scope, ionicToast, Register
         validation = false;
       }
       if (validation) {
-        if (RegisterService.register(req)) {
-          // TODO Login user
-          console.log(req.type);
-        } else {
-          ionicToast.show('L\'inscription à échoué !', 'top', true, 2500);
-        }
+        RegisterService.register(req).success(function (data) {
+          if (data.response == 'already_exist') {
+            ionicToast.show('L\'Email existe déjà', 'top', true, 2500);
+          }
+          if (data.response == 'NOK') {
+            ionicToast.show('Une erreur est survenue', 'top', true, 2500);
+          }
+          if (data.response == 'OK') {
+            ionicToast.show('Un Email vous à été envoyé', 'top', true, 2500);
+            $window.location.href = '#/app/login';
+          }
+          delete req.email;
+          delete req.password;
+          delete req.password_confirm;
+        });
       }
     }
 });
