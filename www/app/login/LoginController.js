@@ -1,4 +1,4 @@
-appContext.controller('LoginController',function($scope, $window, localStorageService, ionicToast, LoginService){
+appContext.controller('LoginController',function($scope, $window, localStorageService, ionicToast, LoginService, LoadingService, $rootScope,$ionicLoading){
   $scope.resendMail = function (user) {
     alert('ok');
   };
@@ -26,8 +26,10 @@ appContext.controller('LoginController',function($scope, $window, localStorageSe
             ionicToast.show('L\'utilisateur n\'existe pas', 'top', true, 2500);
           }
           if(data.response == 'NOT_ENABLED') {
-            ionicToast.show('Il vous faut activer votre compte, pour renvoyer un Email, cliquer <a data-ng-click="resendMail(' + req.email + ')">ICI</a>', 'top', true, 2500);
-          }
+            $rootScope.email = req.email ;
+              LoadingService.infoWithTreatment("Il vous faut activer votre compte, pour renvoyer un Email, taper sur le bouton","LoginController", "Renvoyer")
+
+            }
           if (data.response == 'OK') {
             ionicToast.show('Bienvenue sur NEEMAA !', 'top', true, 2500);
             localStorageService.set('is_authenticate', true);
@@ -36,8 +38,20 @@ appContext.controller('LoginController',function($scope, $window, localStorageSe
           }
         })
         .error(function (err) {
-          console.log(err);
+          error.log(err);
       });
     }
   }
+
+  $scope.treatment = function(){
+    console.warn($rootScope.email);
+    LoginService.resendMail($rootScope.email).success(function(data, status, headers, config){
+        if ("OK" == data.response) {
+          $ionicLoading.hide();
+        }
+    }).error(function(data, status, headers, config){
+        console.warn(data);
+    });
+  }
+
 });
