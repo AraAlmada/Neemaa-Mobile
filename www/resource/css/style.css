@@ -243,3 +243,16 @@ h3 {
   font-size: 4vw;
   text-align: left;
 }
+
+.partner-profil-form-input{
+  width: 100%;
+  max-height: 25px;
+}
+.margin-auto{
+  margin: auto;
+}
+.partner-profil-check {
+  background-color: #FFEEED;
+    border: 0;
+    padding-left: 50px;
+}
