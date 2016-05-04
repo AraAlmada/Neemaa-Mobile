@@ -256,3 +256,33 @@ h3 {
     border: 0;
     padding-left: 50px;
 }
+.window-info{
+  margin: auto;
+}
+.information-text{
+  margin-bottom: 5px;
+}
+.btn-loading-text{
+    width: 100px;
+    height: 30px;
+    font-size: 16px;
+    border-color: transparent;
+    background-color: #fff;
+    color: #444;
+    border-color: transparent;
+    background-color: #f8f8f8;
+    color: #444;
+    position: relative;
+    display: inline-block;
+    margin: 0;
+    padding: 0 5px;
+    min-width: 40px;
+    min-height: 25px;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 4px;
+    vertical-align: top;
+    text-align: center;
+    text-overflow: ellipsis;
+    cursor: pointer;
+}
