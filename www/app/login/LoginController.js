@@ -41,7 +41,7 @@ appContext.controller('LoginController',function($scope, $window, localStorageSe
           error.log(err);
       });
     }
-  }
+  };
 
   $scope.treatment = function(){
     console.warn($rootScope.email);
