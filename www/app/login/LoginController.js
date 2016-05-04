@@ -1,7 +1,11 @@
-appContext.controller('LoginController',function($scope, $location, ionicToast, LoginService){
+appContext.controller('LoginController',function($scope, $window, localStorageService, ionicToast, LoginService){
+  $scope.resendMail = function (user) {
+    alert('ok');
+  };
+
   $scope.login = function (req) {
     var validation = true;
-    if (req.mail == undefined) {
+    if (req.email == undefined) {
       ionicToast.show('L\'Email semble incorrect', 'top', true, 2500);
       validation = false;
     }
@@ -10,14 +14,30 @@ appContext.controller('LoginController',function($scope, $location, ionicToast, 
       validation = false;
     }
     if (validation) {
-      if (LoginService.login(req)) {
-        // TODO test if user is activated
-        // TODO Save the token in LocalStorage
-        // TODO Update LocalStorage 'is Authenticate'
-        $location.path('app/search');
-      } else {
-        ionicToast.show('L\'autentification à échoué !', 'top', true, 2500);
-      }
+      LoginService.login(req)
+        .success(function (data) {
+          if(data.response == 'NOK') {
+            ionicToast.show('Le format de l\'email est inscorrect', 'top', true, 2500);
+          }
+          if (data.response == 'wrong_pass') {
+            ionicToast.show('Le mot de passe semble incorrect', 'top', true, 2500);
+          }
+          if(data.response == 'user_does_not_exist') {
+            ionicToast.show('L\'utilisateur n\'existe pas', 'top', true, 2500);
+          }
+          if(data.response == 'NOT_ENABLED') {
+            ionicToast.show('Il vous faut activer votre compte, pour renvoyer un Email, cliquer <a data-ng-click="resendMail(' + req.email + ')">ICI</a>', 'top', true, 2500);
+          }
+          if (data.response == 'OK') {
+            ionicToast.show('Bienvenue sur NEEMAA !', 'top', true, 2500);
+            localStorageService.set('is_authenticate', true);
+            localStorageService.set('token', data.data.token);
+            $window.location.href = '#/app/search';
+          }
+        })
+        .error(function (err) {
+          console.log(err);
+      });
     }
   }
 });
