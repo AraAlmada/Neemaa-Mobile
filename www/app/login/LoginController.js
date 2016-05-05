@@ -44,6 +44,7 @@ $scope.user=[];
 
             }
           if (data.response == 'OK') {
+            $ionicLoading.hide();
             ionicToast.show('Bienvenue sur NEEMAA !', 'top', false, 2500);
             localStorageService.set('is_authenticate', true);
             localStorageService.set('token', data.data.token);
@@ -51,7 +52,7 @@ $scope.user=[];
           }
         })
         .error(function (err) {
-          error.log(err);
+            ionicToast.show('Une erreur est servenue', 'top', false, 2500);
       });
     }
   };
