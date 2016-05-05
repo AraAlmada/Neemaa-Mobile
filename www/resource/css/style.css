@@ -121,12 +121,12 @@ a {
     color: white;
     font-size: 4vw;
 }
-.list {
-  border: 0;
+.my-list {
+
   margin: 0;
 }
 
-.list a {
+.my-list a {
   padding: 5%;
   color: white;
   background-color: #b04868 !important;
