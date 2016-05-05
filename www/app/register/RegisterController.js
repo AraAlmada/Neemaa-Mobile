@@ -1,42 +1,57 @@
-appContext.controller('RegisterController',function($scope, $window, ionicToast, RegisterService){
-    $scope.register = function (req) {
+appContext.controller('RegisterController',function($scope, $state, ionicToast, RegisterService){
+    $scope.register = function (user) {
+      console.warn(user);
       var validation = true;
-      if (req.email == undefined) {
-        ionicToast.show('L\'Email semble incorrect', 'top', true, 2500);
+
+      if (!user) {
+        ionicToast.show('Merci de remplir le formulaire', 'top', false, 2500);
         validation = false;
       }
-      if (req.password == undefined) {
-        ionicToast.show('Mot de passe non défini', 'top', true, 2500);
+      else if( ! user.email ||  !validateEmail(user.email) ){
+        ionicToast.show('Format de l\'Email incorrect', 'top', false, 2500);
         validation = false;
       }
-      if (req.password_confirm == undefined) {
-        ionicToast.show('Il vous fai confirmer votre mot de passe', 'top', true, 2500);
+      else if (! user.password  ) {
+        ionicToast.show('Mot de passe incorrect', 'top', false, 2500);
         validation = false;
       }
-      if (req.password.length < 6) {
-        ionicToast.show('Votre mot de passe doit contenir au moins 6 charactères', 'top', true, 2500);
+      else if (user.password.length < 6 ) {
+        ionicToast.show('Votre mot de passe doit contenir au moins 6 charactères', 'top', false, 2500);
         validation = false;
       }
-      if (req.password != req.password_confirm) {
-        ionicToast.show('Les mot de passe ne corresponde pas !', 'top', true, 2500);
+      else if (!user.password_confirm) {
+        ionicToast.show('Merci de confirmer votre mot de passe', 'top', false, 2500);
         validation = false;
       }
+      else if (user.password_confirm != user.password ) {
+        ionicToast.show('Les mot de passe ne corresponde pas !', 'top', false, 2500);
+        validation = false;
+      }
+
+
+
       if (validation) {
-        RegisterService.register(req).success(function (data) {
+        RegisterService.register(user).success(function (data) {
           if (data.response == 'already_exist') {
-            ionicToast.show('L\'Email existe déjà', 'top', true, 2500);
+            ionicToast.show('Cet email existe déjà', 'top', false, 2500);
           }
           if (data.response == 'NOK') {
-            ionicToast.show('Une erreur est survenue', 'top', true, 2500);
+            ionicToast.show('Une erreur est survenue', 'top', false, 2500);
           }
           if (data.response == 'OK') {
-            ionicToast.show('Un Email vous à été envoyé', 'top', true, 2500);
-            $window.location.href = '#/app/login';
+            ionicToast.show('Un Email vous à été envoyé', 'top', false, 2500);
+            $state.go("app.login");
           }
-          delete req.email;
-          delete req.password;
-          delete req.password_confirm;
+          delete user.email;
+          delete user.password;
+          delete user.password_confirm;
         });
       }
+
+    }
+
+    function validateEmail(email) {
+        var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+        return re.test(email);
     }
 });
