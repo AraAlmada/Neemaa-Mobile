@@ -1,17 +1,19 @@
 <ion-view view-title="NEEMAA">
   <ion-content class="content-login">
+    <div class="login-container">
     <h1>Se connecter</h1>
     <form>
-      <input type="email" class="text-form" data-ng-model="login.email" placeholder="Email" />
-      <input type="password" class="text-form" data-ng-model="login.password" placeholder="Mot de passe" />
+      <input type="email" class="text-form" ng-model="user.email" placeholder="Email" />
+      <input type="password" class="text-form" ng-model="user.password" placeholder="Mot de passe" />
     </form>
-    <p>
-      Je veux <a ui-sref="app.register">m'inscrire</a>
+    <p class="login-para">
+      <a ui-sref="app.register"> Je veux m'inscrire</a>
     </p>
+  </div>
   </ion-content>
   <div class="bar bar-footer bar-balanced">
     <div class="title">
-      <button class="button button-large button-positive neemaa-button-footer" data-ng-click="login(login)">CONFIRMER</button>
+      <button class="button button-large button-positive neemaa-button-footer" ng-click="login(user)">CONFIRMER</button>
     </div>
   </div>
 </ion-view>

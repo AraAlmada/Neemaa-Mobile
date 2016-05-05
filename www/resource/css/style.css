@@ -76,6 +76,8 @@ a {
     font-size: 5vw !important;
     font-weight: bold;
     height: 100%;
+    display: block;
+    margin: auto;
 }
 
 .bar-footer {
@@ -262,6 +264,7 @@ h3 {
 .information-text{
   margin-bottom: 5px;
 }
+
 .btn-loading-text{
     width: 100px;
     height: 30px;
@@ -285,4 +288,33 @@ h3 {
     text-align: center;
     text-overflow: ellipsis;
     cursor: pointer;
+}
+.register-check {
+  background-color: #B04868;
+  border: 0;
+  padding-left: 50px;
+  color : #fff;
+  padding-top: 10px;
+}
+.register-check div.checkbox{
+  padding-left: 0;
+  padding-top: 5px;
+}
+.register-check div.item-content{
+  white-space: normal;
+  font-size: 14px;
+}
+.custom-button{
+  bottom: 0;
+    position: absolute;
+    width: 100%;
+}
+.scroll{
+  height: 100%;
+}
+.login-para{
+  float:right;
+}
+.login-container{
+  margin-top: 10%;
 }

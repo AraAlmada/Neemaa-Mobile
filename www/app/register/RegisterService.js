@@ -3,7 +3,7 @@ appContext.factory('RegisterService', function ($http, ionicToast) {
     register: function (user) {
       return $http({
         method: 'POST',
-        url: 'http://127.0.0.1:8000/user/create',
+        url: 'http://52.33.106.148/Neemaa-Back/web/app.php/user/create',
         headers: {'Content-Type': 'application/x-www-form-urlencoded'},
         transformRequest: function(obj) {
           var str = [];
