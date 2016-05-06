@@ -2,10 +2,10 @@
   <ion-content class="content-user-profil">
     <form>
       <div class="row">
-        <div class="col">
+        <div class="col"  >
           <img class="profil_picture" src="https://pixabay.com/static/uploads/photo/2014/04/02/14/07/barber-shop-306199_960_720.png" /><br>
-          <input type="radio" class="register-check" data-ng-model="user_profil.gender" value="female"><span class="white-color"> Femme</span><br>
-          <input type="radio" data-ng-model="user_profil.gender" value="male"><span class="white-color"> Homme</span><br>
+          <ion-radio class="user-profile-radio" ng-model="user_profil.gender" ng-value="H">Homme</ion-radio>
+          <ion-radio class="user-profile-radio" ng-model="user_profil.gender"  ng-value="F">Femme</ion-radio>
         </div>
         <div class="col">
           <input type="text" data-ng-model="user_profil.last_name" class="profil-text-form" placeholder="Nom">

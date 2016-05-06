@@ -339,3 +339,37 @@ h3 {
       width: 100%;
       left: 0px;
     }
+.user-profile-radio  {
+  color : #B34F6E
+}
+.user-profile-radio div.radio-content div.item-content {
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+    background-color: #B04868 !important;
+    color: #fff !important;
+    padding-left: 35px
+}
+.user-profile-radio div.radio-content   i{
+  padding : 0;
+  background-color: #fff;
+  border-radius: 15px;
+  right: inherit;
+  left: 0;
+  border: 1px solid #FFF;
+  width: 24px;
+  height: 24px;
+  margin-top:3px 
+
+}
+.user-profile-radio div.radio-content   i:before{
+  margin: auto;
+  display: block;
+
+}
+.user-profile-radio {
+  border: 0 !important;
+
+}
+.user-profile-radio div.radio-content {
+
+}
