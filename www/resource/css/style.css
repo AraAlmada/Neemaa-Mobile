@@ -313,9 +313,10 @@ h3 {
   font-size: 14px;
 }
 .custom-button{
-  bottom: 0;
+  bottom: 20px;
   position: absolute;
   width: 100%;
+  left:0px
 }
 .scroll{
   height: 100%;
@@ -328,13 +329,13 @@ h3 {
 }
 
 .login-button{
-   bottom: 17px;
+   bottom:  20px;
    position: absolute;
    width: 100%;
    left: 0px;
 }
 .search-button{
-    bottom: 17px;
+    bottom:  20px;
     position: absolute;
     width: 100%;
     left: 0px;
@@ -343,7 +344,7 @@ h3 {
      height: 5%;
 }
 .button_partner{
-      bottom: 17px;
+      bottom: 20px;
       position: absolute;
       width: 100%;
       left: 0px;
@@ -375,4 +376,9 @@ h3 {
 }
 .user-profile-radio {
    border: 0 !important;
+ }.rigth-info{
+   margin-left:10px;
+ }
+ .my-list .item-content{
+   padding: 13px;
  }

@@ -3,7 +3,7 @@
     <h1>RENDEZ-VOUS A L'INSTANT</h1>
     <h2>Avec les meilleurs stylistes de la beauté afro.</h2>
     <form>
-      <input type="text" class="text-form" data-ng-model="search.cp" placeholder="* Où tu veux la prestation ? (Code Postal)" />
+      <input type="text" class="text-form" data-ng-model="search.cp" ng-blur="blur()" ng-focus="focus()" placeholder="* Où tu veux la prestation ? (Code Postal)" />
       <select data-ng-model="search.service" class="text-form-select">
         <option value="" selected disabled>* Service Souhaité</option>
         <option value="Cheveux" disabled style="font-weight: bold; background-color: #ecf0f1">Cheveux</option>
@@ -17,7 +17,7 @@
       </select>
       <p>* Champs Obligatoires</p>
     </form>
-    <div class="search-button">
+    <div class="search-button" ng-if="!focused">
       <button class="button button-large button-positive neemaa-button-footer" data-ng-click="search(search)">RESERVER</button>
     </div>
   </ion-content>

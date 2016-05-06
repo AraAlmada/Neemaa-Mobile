@@ -82,5 +82,13 @@ $scope.user=[];
         var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
         return re.test(email);
     }
+    //on focus
+         $scope.focus = function() {
+           $rootScope.focused = true;
+         };
+         //on blr
+         $scope.blur = function() {
+           $rootScope.focused = false;
+         };
 
 });

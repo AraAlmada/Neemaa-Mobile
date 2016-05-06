@@ -3,11 +3,13 @@ appContext.service('ListService',function(){
     getPartner: {
       'Partner1': {
         'name': 'Alexandre M.',
-        'service': 'Tissage'
+        'service': 'Tissage',
+        'codePostal':'92700'
       },
       'Partner2': {
         'name': 'Dupond J.',
-        'service': 'Coiffure'
+        'service': 'Coiffure',
+        'codePostal':'92701'
       }
     }
   }

@@ -2,16 +2,16 @@
   <ion-content scroll="false"  class="content-register">
     <h1>Créez votre compte</h1>
     <form>
-      <input type="text" class="text-form" data-ng-model="user.email" placeholder="Email" />
-      <input type="password" class="text-form" data-ng-model="user.password" placeholder="Mot de passe" />
-      <input type="password" class="text-form" data-ng-model="user.password_confirm" placeholder="Confirmation mot de passe" />
+      <input type="text" class="text-form"  ng-blur="blur()" ng-focus="focus()" data-ng-model="user.email" placeholder="Email" />
+      <input type="password" class="text-form" ng-blur="blur()" ng-focus="focus()"  data-ng-model="user.password" placeholder="Mot de passe" />
+      <input type="password" class="text-form"  ng-blur="blur()" ng-focus="focus()" data-ng-model="user.password_confirm" placeholder="Confirmation mot de passe" />
       <p>Déja inscrit ? <a ui-sref="app.login">Cliquez ici</a></p>
 
       <ion-checkbox class="register-check"ng-model="user.type" >Je suis prestataires de services. Je veux m'inscrire en tant que NeemStyler</ion-checkbox>
 
     </form>
 
-    <div class="custom-button">
+    <div class="custom-button" ng-if="!focused">
       <button class="button button-large button-positive neemaa-button-footer" data-ng-click="register(user)">CONFIRMER</button>
     </div>
   </ion-content>
