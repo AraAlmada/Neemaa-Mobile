@@ -66,6 +66,10 @@ a {
     margin-bottom: 3%;
     padding: 2% !important;
     border-radius: 5px;
+    background: #FFF;
+    background-image: url(../../resource/images/arrow-down-b.png);
+    background-repeat: no-repeat;
+    	background-position: 80px 5px;
 }
 
 .neemaa-button-footer {
@@ -316,4 +320,22 @@ h3 {
 }
 .login-container{
   margin-top: 10%;
+}
+}.login-button{
+  bottom: 17px;
+  position: absolute;
+  width: 100%;
+  left: 0px;
+}.search-button{
+  bottom: 17px;
+  position: absolute;
+  width: 100%;
+  left: 0px;
+}.profil_clear{
+  height: 5%;
+}.button_partner{
+  bottom: 17px;
+  position: absolute;
+  width: 100%;
+  left: 0px;
 }

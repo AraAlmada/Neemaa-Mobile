@@ -1,5 +1,5 @@
-<ion-view view-title="NEEMAA">
-  <ion-content class="content-login">
+<ion-view view-title="NEEMAA" class="content-login">
+  <ion-content scroll="false" class="content-login">
     <div class="login-container">
     <h1>Se connecter</h1>
     <form>
@@ -9,11 +9,10 @@
     <p class="login-para">
       <a ui-sref="app.register"> Je veux m'inscrire</a>
     </p>
-  </div>
-  </ion-content>
-  <div class="bar bar-footer bar-balanced">
-    <div class="title">
-      <button ng-show="isFocused" class="button button-large button-positive neemaa-button-footer" ng-click="login(user)">CONFIRMER</button>
+    <div class="login-button">
+      <button  class="button button-large button-positive neemaa-button-footer" ng-click="login(user)">CONFIRMER</button>
     </div>
   </div>
+  </ion-content>
+
 </ion-view>
