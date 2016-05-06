@@ -182,7 +182,7 @@ a {
 }
 
 .partner_nfo {
-  padding-top: 20%;
+  padding-top: 2%;
   color: white;
   text-align: left;
 }
@@ -256,6 +256,12 @@ h3 {
   background-color: #FFEEED;
     border: 0;
     padding-left: 50px;
+}
+.partner-info-check {
+  background-color: #b04868;
+  border: 0;
+  color: white;
+  padding-left: 50px;
 }
 .window-info{
   margin: auto;

@@ -1,7 +1,7 @@
 <ion-view view-title="NEEMAA">
   <ion-content class="content-partner-nfo">
     <div class="row">
-      <div class="col">
+      <div class="col col-33">
         <img class="partner_picture" src={{partnerNfo.picture}} /><br>
         <i class="ion ion-star"></i>
         <i class="ion ion-star"></i>
@@ -9,22 +9,31 @@
         <i class="ion ion-star"></i>
         <i class="ion ion-star"></i>
       </div>
-      <div class="col">
+      <div class="col col-60">
         <div class="partner_nfo">
           <h2>{{partnerNfo.name}}</h2>
           <p>
             Adresse :<br>
             {{partnerNfo.adress}}
           </p>
-
-          <input class="" type="checkbox"> A domicile
-          <input class="" type="checkbox"> En salon
         </div>
       </div>
     </div>
     <div class="row">
       <div class="col">
-        <img class="partner-detail-picture" data-ng-repeat="photo in partnerNfo.img track by $index" src={{photo}}/>
+        <ion-checkbox class="partner-info-check" disabled>A Domicile</ion-checkbox>
+      </div>
+      <div class="col">
+        <ion-checkbox class="partner-info-check">En salon</ion-checkbox>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <img class="partner-detail-picture" src="http://www.agencetonylemale.fr/vendor/SLIR/bFFF-w600-q85/var/www/vhost/agencetonylemale.fr/htdocs/documents/salon-de-coiffure-paris-design-industriel-baroque-2.JPG"/>
+        <img class="partner-detail-picture" src="http://www.agencetonylemale.fr/vendor/SLIR/bFFF-w600-q85/var/www/vhost/agencetonylemale.fr/htdocs/documents/salon-de-coiffure-paris-design-industriel-baroque-1.JPG"/>
+        <img class="partner-detail-picture" src="http://www.plafond-platre.net/wp-content/uploads/2015/05/23_Mix-Beauty.jpg"/>
+        <img class="partner-detail-picture" src="http://www.pourchere.com/resources/p+017bis.jpg"/>
+        <img class="partner-detail-picture" src="http://www.mon-mariageoriental.com/wp-content/gallery/jn-mariage/coiffure-mariage-creteil.jpg"/>
       </div>
     </div>
     <h2 class="partner_nfo_title">Services :</h2>
