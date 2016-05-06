@@ -6,13 +6,13 @@
             <input type="text" class="text-form" data-ng-model="search.cp" placeholder="* Où tu veux la prestation ? (Code Postal)" />
             <select data-ng-model="search.service" class="text-form-select">
               <option value="" selected disabled>* Service Souhaité</option>
-              <option value="Cheveux" disabled>Cheveux</option>
+              <option value="Cheveux" disabled style="font-weight: bold; background-color: #ecf0f1">Cheveux</option>
               <option data-ng-repeat="service in serviceList.Cheveux">{{ service }}</option>
-              <option value="Peau" disabled>Peau</option>
+              <option value="Peau" disabled style="font-weight: bold; background-color: #ecf0f1">Peau</option>
               <option data-ng-repeat="service in serviceList.Peau">{{ service }}</option>
-              <option value="Mains/Pieds" disabled>Mains/Pieds</option>
+              <option value="Mains/Pieds" disabled style="font-weight: bold; background-color: #ecf0f1">Mains/Pieds</option>
               <option data-ng-repeat="service in serviceList.Mains_Pieds">{{ service }}</option>
-              <option value="Life-Style" disabled>Life-Style</option>
+              <option value="Life-Style" disabled style="font-weight: bold; background-color: #ecf0f1">Life-Style</option>
               <option data-ng-repeat="service in serviceList.Life_Style">{{ service }}</option>
             </select>
             <p>* Champs Obligatoires</p>
