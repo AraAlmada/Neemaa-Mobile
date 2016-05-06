@@ -52,7 +52,8 @@ $scope.user=[];
           }
         })
         .error(function (err) {
-            ionicToast.show('Une erreur est servenue', 'top', false, 2500);
+          $ionicLoading.hide();
+          ionicToast.show('Une erreur est servenue', 'top', false, 2500);
       });
     }
   };
