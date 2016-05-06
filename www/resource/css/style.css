@@ -162,7 +162,6 @@ a {
 }
 
 .profil_picture {
-  padding-top: 13%;
   width: 100% !important;
   text-align: left !important;
   border-radius: 50%;
@@ -261,6 +260,12 @@ h3 {
   border: 0;
   padding-left: 50px;
 }
+.partner-info-check {
+  color: white;
+  background-color: #b04868;
+  border: 0;
+  padding-left: 50px;
+}
 .window-info{
   margin: auto;
 }
@@ -321,21 +326,25 @@ h3 {
 .login-container{
   margin-top: 10%;
 }
-}.login-button{
+
+.login-button{
    bottom: 17px;
    position: absolute;
    width: 100%;
    left: 0px;
- }.search-button{
+}
+.search-button{
     bottom: 17px;
     position: absolute;
     width: 100%;
     left: 0px;
-  }.profil_clear{
+}
+.profil_clear{
      height: 5%;
-   }.button_partner{
+}
+.button_partner{
       bottom: 17px;
       position: absolute;
       width: 100%;
       left: 0px;
-    }
+}
