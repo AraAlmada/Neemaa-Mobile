@@ -4,8 +4,8 @@
       <div class="row">
         <div class="col">
           <img class="profil_picture" src="https://pixabay.com/static/uploads/photo/2014/04/02/14/07/barber-shop-306199_960_720.png" /><br>
-          <input type="radio" data-ng-model="user_profil.gender" value="female"><span class="white-color"> Femme</span><br>
-          <input type="radio" data-ng-model="user_profil.gender" value="male"><span class="white-color"> Homme</span><br>
+          <ion-checkbox class="partner-info-check">Homme</ion-checkbox>
+          <ion-checkbox class="partner-info-check">Femme</ion-checkbox>
         </div>
         <div class="col">
           <input type="text" data-ng-model="user_profil.last_name" class="profil-text-form" placeholder="Nom">
@@ -36,7 +36,7 @@
             <option value="" selected disabled>Couleur de cheveux</option>
             <option data-ng-repeat="hairColor in user_profile.HairColor">{{hairColor}}</option>
           </select>
-          <input type="radio" data-ng-model="user_profil.type" /><span class="white-color">Je veux m'inscrire comme NeemStyler (prestataire de service)</span>
+          <ion-checkbox class="partner-info-check">Je veux m'inscrire comme NeemStyler</ion-checkbox>
         </div>
       </div>
     </form>
