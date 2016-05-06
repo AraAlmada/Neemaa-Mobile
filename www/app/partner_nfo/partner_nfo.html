@@ -1,7 +1,7 @@
 <ion-view view-title="NEEMAA">
   <ion-content class="content-partner-nfo">
     <div class="row">
-      <div class="col col-33">
+      <div class="col">
         <img class="partner_picture" src={{partnerNfo.picture}} /><br>
         <i class="ion ion-star"></i>
         <i class="ion ion-star"></i>
@@ -9,22 +9,17 @@
         <i class="ion ion-star"></i>
         <i class="ion ion-star"></i>
       </div>
-      <div class="col col-60">
+      <div class="col">
         <div class="partner_nfo">
           <h2>{{partnerNfo.name}}</h2>
           <p>
             Adresse :<br>
             {{partnerNfo.adress}}
           </p>
+
+          <input class="" type="checkbox"> A domicile
+          <input class="" type="checkbox"> En salon
         </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        <ion-checkbox class="partner-info-check" disabled>A Domicile</ion-checkbox>
-      </div>
-      <div class="col">
-        <ion-checkbox class="partner-info-check">En salon</ion-checkbox>
       </div>
     </div>
     <div class="row">
@@ -40,10 +35,9 @@
     <ul class="list-partner-nfo">
       <li data-ng-repeat="service in partnerNfo.service">{{service}}</li>
     </ul>
-  </ion-content>
-  <div class="bar bar-footer bar-balanced">
-    <div class="title">
+
+    <div class="button_partner">
       <button class="button button-large button-positive neemaa-button-footer" data-ng-click="user_profil(user_profil)">Réserver</button>
     </div>
-  </div>
+  </ion-content>
 </ion-view>

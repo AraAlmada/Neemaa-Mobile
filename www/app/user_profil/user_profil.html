@@ -1,11 +1,11 @@
-<ion-view view-title="NEEMAA">
+<ion-view view-title="NEEMAA" class="content-user-profil">
   <ion-content class="content-user-profil">
     <form>
       <div class="row">
         <div class="col">
           <img class="profil_picture" src="https://pixabay.com/static/uploads/photo/2014/04/02/14/07/barber-shop-306199_960_720.png" /><br>
-          <ion-checkbox class="partner-info-check">Homme</ion-checkbox>
-          <ion-checkbox class="partner-info-check">Femme</ion-checkbox>
+          <input type="radio" class="register-check" data-ng-model="user_profil.gender" value="female"><span class="white-color"> Femme</span><br>
+          <input type="radio" data-ng-model="user_profil.gender" value="male"><span class="white-color"> Homme</span><br>
         </div>
         <div class="col">
           <input type="text" data-ng-model="user_profil.last_name" class="profil-text-form" placeholder="Nom">
@@ -24,28 +24,45 @@
             <option value="" disabled>Type de peau</option>
             <option data-ng-repeat="skin in user_profile.SkinType">{{skin}}</option>
           </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
           <select data-ng-model="user_profil.SkinColor" class="text-form-select">
             <option value="" selected disabled>Couleur de peau</option>
             <option data-ng-repeat="color in user_profile.SkinColor" style="background-color: {{color}};"></option>
           </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
           <select data-ng-model="user_profil.HairType" class="text-form-select">
             <option value="" selected disabled>Type de cheveux</option>
             <option data-ng-repeat="hairType in user_profile.HairType">{{hairType}}</option>
           </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
           <select data-ng-model="user_profil.HairColor" class="text-form-select">
             <option value="" selected disabled>Couleur de cheveux</option>
             <option data-ng-repeat="hairColor in user_profile.HairColor">{{hairColor}}</option>
           </select>
-          <ion-checkbox class="partner-info-check">Je veux m'inscrire comme NeemStyler</ion-checkbox>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <input type="radio" data-ng-model="user_profil.type" /><span class="white-color">Je veux m'inscrire comme NeemStyler (prestataire de service)</span>
         </div>
       </div>
     </form>
-  </ion-content>
-  <div class="bar bar-footer bar-balanced">
-    <div class="title">
-      <button class="button button-large button-positive neemaa-button-footer" data-ng-click="save_profil(user_profil)">Enregistrer</button>
+    <div class="row">
+      <div class="col">
+
+        <button class="button button-large button-positive neemaa-button-footer" data-ng-click="save_profil(user_profil)">Enregistrer</button>
+      </div>
     </div>
-  </div>
+    <div class="profil_clear">
+
+  </ion-content>
 </ion-view>
-
-

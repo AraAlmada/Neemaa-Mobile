@@ -14,30 +14,30 @@ body {
 }
 
 .bar-stable {
-    background-color: white !important;
+  background-color: white !important;
 }
 
 a {
-    color: #f0b4c5;
-    text-decoration: underline;
+  color: #f0b4c5;
+  text-decoration: underline;
 }
 
 .ion-navicon {
-    color: #b04868 !important;
+  color: #b04868 !important;
 }
 
 .content-register {
-    padding: 5%;
-    background-color: #b04868 !important;
+  padding: 5%;
+  background-color: #b04868 !important;
 }
 
 .content-register h1 {
-    color: white;
-    font-size: 5vw;
+  color: white;
+  font-size: 5vw;
 }
 
 .content-register form p {
-    color: white;
+  color: white;
 }
 
 .content-login {
@@ -55,42 +55,46 @@ a {
 }
 
 .text-form {
-    width: 100%;
-    margin-bottom: 3%;
-    padding: 5% !important;
-    border-radius: 5px;
+  width: 100%;
+  margin-bottom: 3%;
+  padding: 5% !important;
+  border-radius: 5px;
 }
 
 .text-form-select {
-    width: 100%;
-    margin-bottom: 3%;
-    padding: 2% !important;
-    border-radius: 5px;
+  width: 100%;
+  margin-bottom: 3%;
+  padding: 2% !important;
+  border-radius: 5px;
+  background: #FFF;
+  background-image: url(../../resource/images/arrow-down-b.png);
+  background-repeat: no-repeat;
+  background-position: 80px 5px;
 }
 
 .neemaa-button-footer {
-    background-color: #5c2542 !important;
-    color: white;
-    width: 80%;
-    font-size: 5vw !important;
-    font-weight: bold;
-    height: 100%;
-    display: block;
-    margin: auto;
+  background-color: #5c2542 !important;
+  color: white;
+  width: 80%;
+  font-size: 5vw !important;
+  font-weight: bold;
+  height: 100%;
+  display: block;
+  margin: auto;
 }
 
 .bar-footer {
-    background-color: #b04868 !important;
-    text-align: center !important;
-    padding-bottom: 70px !important;
-    padding-top: 0 !important;
-    background-position: 0 -1px;
+  background-color: #b04868 !important;
+  text-align: center !important;
+  padding-bottom: 70px !important;
+  padding-top: 0 !important;
+  background-position: 0 -1px;
 }
 
 .content-search {
-    text-align: center;
-    padding: 5%;
-    background-color: #b04868 !important;
+  text-align: center;
+  padding: 5%;
+  background-color: #b04868 !important;
 }
 
 .content-search p {
@@ -99,26 +103,26 @@ a {
 }
 
 .content-search h1 {
-    margin-top: 25%;
-    color: white;
-    font-size: 5vw;
+  margin-top: 25%;
+  color: white;
+  font-size: 5vw;
 }
 
 .content-search h2 {
-    margin-bottom: 25%;
-    color: white;
-    font-size: 4vw;
+  margin-bottom: 25%;
+  color: white;
+  font-size: 4vw;
 }
 
 .content-list {
-    padding-top: 5%;
-    text-align: center;
-    background-color: #b04868 !important;
+  padding-top: 5%;
+  text-align: center;
+  background-color: #b04868 !important;
 }
 
 .content-list p {
-    color: white;
-    font-size: 4vw;
+  color: white;
+  font-size: 4vw;
 }
 .my-list {
 
@@ -158,6 +162,7 @@ a {
 }
 
 .profil_picture {
+  padding-top: 13%;
   width: 100% !important;
   text-align: left !important;
   border-radius: 50%;
@@ -181,7 +186,7 @@ a {
 }
 
 .partner_nfo {
-  padding-top: 2%;
+  padding-top: 20%;
   color: white;
   text-align: left;
 }
@@ -253,13 +258,7 @@ h3 {
 }
 .partner-profil-check {
   background-color: #FFEEED;
-    border: 0;
-    padding-left: 50px;
-}
-.partner-info-check {
-  background-color: #b04868;
   border: 0;
-  color: white;
   padding-left: 50px;
 }
 .window-info{
@@ -270,28 +269,28 @@ h3 {
 }
 
 .btn-loading-text{
-    width: 100px;
-    height: 30px;
-    font-size: 16px;
-    border-color: transparent;
-    background-color: #fff;
-    color: #444;
-    border-color: transparent;
-    background-color: #f8f8f8;
-    color: #444;
-    position: relative;
-    display: inline-block;
-    margin: 0;
-    padding: 0 5px;
-    min-width: 40px;
-    min-height: 25px;
-    border-width: 1px;
-    border-style: solid;
-    border-radius: 4px;
-    vertical-align: top;
-    text-align: center;
-    text-overflow: ellipsis;
-    cursor: pointer;
+  width: 100px;
+  height: 30px;
+  font-size: 16px;
+  border-color: transparent;
+  background-color: #fff;
+  color: #444;
+  border-color: transparent;
+  background-color: #f8f8f8;
+  color: #444;
+  position: relative;
+  display: inline-block;
+  margin: 0;
+  padding: 0 5px;
+  min-width: 40px;
+  min-height: 25px;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 4px;
+  vertical-align: top;
+  text-align: center;
+  text-overflow: ellipsis;
+  cursor: pointer;
 }
 .register-check {
   background-color: #B04868;
@@ -310,8 +309,8 @@ h3 {
 }
 .custom-button{
   bottom: 0;
-    position: absolute;
-    width: 100%;
+  position: absolute;
+  width: 100%;
 }
 .scroll{
   height: 100%;
@@ -322,3 +321,21 @@ h3 {
 .login-container{
   margin-top: 10%;
 }
+}.login-button{
+   bottom: 17px;
+   position: absolute;
+   width: 100%;
+   left: 0px;
+ }.search-button{
+    bottom: 17px;
+    position: absolute;
+    width: 100%;
+    left: 0px;
+  }.profil_clear{
+     height: 5%;
+   }.button_partner{
+      bottom: 17px;
+      position: absolute;
+      width: 100%;
+      left: 0px;
+    }
