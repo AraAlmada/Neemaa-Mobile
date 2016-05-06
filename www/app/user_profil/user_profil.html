@@ -4,12 +4,12 @@
       <div class="row">
         <div class="col">
           <img class="profil_picture" src="https://pixabay.com/static/uploads/photo/2014/04/02/14/07/barber-shop-306199_960_720.png" /><br>
-          <input type="radio" class="register-check" data-ng-model="user_profil.gender" value="female"><span class="white-color"> Femme</span><br>
-          <input type="radio" data-ng-model="user_profil.gender" value="male"><span class="white-color"> Homme</span><br>
+          <ion-checkbox class="partner-info-check">Checkbox Label</ion-checkbox>
+          <ion-checkbox class="partner-info-check">Checkbox Label</ion-checkbox>
         </div>
         <div class="col">
-          <input type="text" data-ng-model="user_profil.last_name" class="profil-text-form" placeholder="Nom">
-          <input type="text" data-ng-model="user_profil.first_name" class="profil-text-form" placeholder="Prénom">
+          <input type="text" data-ng-model="user_profil.lastname" class="profil-text-form" placeholder="Nom">
+          <input type="text" data-ng-model="user_profil.firstname" class="profil-text-form" placeholder="Prénom">
           <input type="email" data-ng-model="user_profil.email" class="profil-text-form" placeholder="Email" >
           <input type="tel" data-ng-model="user_profil.tel" class="profil-text-form" placeholder="mobile" >
           <input type="text" data-ng-model="user_profil.adress" class="profil-text-form" placeholder="Adresse" >
@@ -52,7 +52,7 @@
       </div>
       <div class="row">
         <div class="col">
-          <input type="radio" data-ng-model="user_profil.type" /><span class="white-color">Je veux m'inscrire comme NeemStyler (prestataire de service)</span>
+          <ion-checkbox class="partner-info-check">Je veux m'inscrire comme NeemStyler</ion-checkbox>
         </div>
       </div>
     </form>
