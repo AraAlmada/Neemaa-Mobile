@@ -1,4 +1,4 @@
-appContext.controller('LoginController',function($scope, $window, localStorageService, ionicToast, LoginService, LoadingService, $rootScope,$ionicLoading){
+appContext.controller('LoginController',function($scope, $window, $state, localStorageService, ionicToast, LoginService, LoadingService, $rootScope,$ionicLoading){
   $scope.resendMail = function (user) {
     alert('ok');
   };
@@ -48,7 +48,15 @@ $scope.user=[];
             ionicToast.show('Bienvenue sur NEEMAA !', 'top', false, 2500);
             localStorageService.set('is_authenticate', true);
             localStorageService.set('token', data.data.token);
-            $window.location.href = '#/app/search';
+            LoginService.checkIsPartner(localStorageService.get('token'))
+              .success(function (data) {
+                var isPartner = JSON.parse(data.data);
+                localStorageService.set('isPartner', isPartner.partner);
+                $state.go('app.search');
+            }).error(function (err) {
+              ionicToast.show('Une erreur est servenue', 'top', false, 2500);
+            });
+
           }
         })
         .error(function (err) {

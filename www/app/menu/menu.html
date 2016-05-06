@@ -2,7 +2,7 @@
   <ion-side-menu-content>
     <ion-nav-bar class="menu-bar">
       <ion-nav-buttons side="right">
-        <button class="button button-icon button-clear ion-android-menu ion-navicon btn-menu" menu-toggle="right" data-ng-show="showMenuButton()">
+        <button class="button button-icon button-clear ion-android-menu ion-navicon btn-menu" menu-toggle="right" data-ng-if="showMenuButton()">
         </button>
       </ion-nav-buttons>
     </ion-nav-bar>
@@ -28,10 +28,10 @@
         <ion-item menu-close>
           <i class="ion-calendar"></i> Mes Rendez-Vous
         </ion-item>
-        <ion-item menu-close  ui-sref="app.userProfil" data-ng-show="!checkIsPartner()">
+        <ion-item menu-close  ui-sref="app.userProfil" data-ng-if="!checkIsPartner()">
           <i class="ion-person"></i> Mon Profil
         </ion-item>
-        <ion-item menu-close  ui-sref="app.partnerProfil" data-ng-show="checkIsPartner()">
+        <ion-item menu-close  ui-sref="app.partnerProfil" data-ng-if="checkIsPartner()">
           <i class="ion-person"></i> Mon Profil NeemStyler
         </ion-item>
         <ion-item menu-close>

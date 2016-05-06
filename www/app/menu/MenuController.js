@@ -7,15 +7,8 @@ appContext.controller('MenuController', function($scope, $location, $ionicSideMe
     }
   };
 
-  $scope.isPartner = [];
-  MenuService.checkIsPartner(localStorageService.get('token'))
-  .success(function (data) {
-    $scope.isPartner = JSON.parse(data.data);
-    $scope.isPartner = $scope.isPartner.partner;
-  });
-
   $scope.checkIsPartner = function () {
-    if ($scope.isPartner) {
+    if (localStorageService.get('isPartner')) {
       return 1;
     } else {
       return 0;
