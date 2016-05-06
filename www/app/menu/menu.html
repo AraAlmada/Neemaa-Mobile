@@ -22,16 +22,19 @@
         <ion-item menu-close>
           <i class="ion-help-buoy"></i> Comment ca marche ?
         </ion-item>
-        <ion-item menu-close  >
+        <ion-item menu-close>
           <i class="ion-ios-plus"></i> Prendre Rendez-Vous
         </ion-item>
-        <ion-item menu-close  >
+        <ion-item menu-close>
           <i class="ion-calendar"></i> Mes Rendez-Vous
         </ion-item>
-        <ion-item menu-close  ui-sref="app.userProfil" >
+        <ion-item menu-close  ui-sref="app.userProfil" data-ng-show="!checkIsPartner()">
           <i class="ion-person"></i> Mon Profil
         </ion-item>
-        <ion-item menu-close >
+        <ion-item menu-close  ui-sref="app.partnerProfil" data-ng-show="checkIsPartner()">
+          <i class="ion-person"></i> Mon Profil NeemStyler
+        </ion-item>
+        <ion-item menu-close>
          <i class="ion-compose"></i> Nous Contacter
         </ion-item>
       </ion-list>
