@@ -1,4 +1,4 @@
-appContext.controller('RegisterController',function($scope, $state, ionicToast, RegisterService,$rootScope){
+appContext.controller('RegisterController',function($scope, $state, ionicToast, RegisterService,$rootScope,localStorageService){
     $scope.register = function (user) {
       console.warn(user);
       var validation = true;

@@ -3,7 +3,7 @@ appContext.factory('LoginService',function($http){
     login: function (user) {
       return $http({
         method: 'POST',
-        url: 'http://52.33.106.148/Neemaa-Back/web/app.php/user/get/token',
+        url: 'http://dev.neemaa.com/user/get/token',
         headers: {'Content-Type': 'application/x-www-form-urlencoded'},
         transformRequest: function(obj) {
           var str = [];
@@ -18,7 +18,7 @@ appContext.factory('LoginService',function($http){
     checkIsPartner: function (value) {
       return $http({
         method: 'POST',
-        url: 'http://52.33.106.148/Neemaa-Back/web/app.php/api/user/get/profile?token=' + value,
+        url: 'http://dev.neemaa.com/api/user/get/profile?token=' + value,
         headers: {'Content-Type': 'application/x-www-form-urlencoded'},
         transformRequest: function(obj) {
           var str = [];
@@ -33,7 +33,7 @@ appContext.factory('LoginService',function($http){
     resendMail : function(email, token){
       var request = {
         method: 'POST',
-        url: 'http://52.33.106.148/Neemaa-Back/web/app.php/user/send/'+encodeURIComponent(email),
+        url: 'http://dev.neemaa.com/user/send/'+encodeURIComponent(email),
         headers: {'Content-Type': 'application/x-www-form-urlencoded'},
         transformRequest: function(obj) {
           var str = [];
