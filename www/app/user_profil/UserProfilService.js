@@ -54,6 +54,7 @@ appContext.factory('UserProfilService',function($http){
       });
     },
     saveUser: function (user, token) {
+
       return $http({
         method: 'POST',
         url: 'http://52.33.106.148/Neemaa-Back/web/app.php/api/user/update/profile?token=' + token,
@@ -67,13 +68,15 @@ appContext.factory('UserProfilService',function($http){
         data: {
           first_name: user.first_name,
           last_name: user.last_name,
-          sex: user.gender,
-          code_postal: user.cp,
+          phone : user.phone,
+          sex: user.sex,
+          code_postal : user.code_postal,
           birthdate: user.birthdate,
           skin_type: user.SkinType,
           skin_color: user.SkinColor,
           hair_type: user.HairType,
           hair_color: user.HairColor,
+          is_partner : user.partner,
           token: token
         }
       });
