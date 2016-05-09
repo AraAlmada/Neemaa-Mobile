@@ -1,4 +1,4 @@
-appContext.controller('SearchController',function($scope, $location, localStorageService, ionicToast, SearchService){
+appContext.controller('SearchController',function($scope, $location, localStorageService, ionicToast, SearchService,$rootScope){
   $scope.serviceList = SearchService.getService();
   $scope.search = function (req) {
     var validation = true;
@@ -16,6 +16,14 @@ appContext.controller('SearchController',function($scope, $location, localStorag
       $location.path('app/list');
     }
   }
+  //on focus
+       $scope.focus = function() {
+         $rootScope.focused = true;
+       };
+       //on blr
+       $scope.blur = function() {
+         $rootScope.focused = false;
+       };
 });
 /*
 var doLogin = function(email, password) {
