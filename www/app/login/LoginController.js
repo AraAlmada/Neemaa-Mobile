@@ -7,18 +7,18 @@ $scope.user=[];
 
     var validation = true;
     if( !user){
-      ionicToast.show('Merci de remplir tout les champs', 'top', false, 2500);
+      ionicToast.show('Merci de remplir tout les champs', 'top', false, 5000);
       validation = false;
     }else if (user.email == undefined || !validateEmail(user.email)) {
-      ionicToast.show('Email incorrect', 'top', false, 2500);
+      ionicToast.show('Email incorrect', 'top', false, 5000);
       validation = false;
     }
     else if (! user.password) {
-      ionicToast.show('Mot de passe  incorrect', 'top', false, 2500);
+      ionicToast.show('Mot de passe  incorrect', 'top', false, 5000);
       validation = false;
     }
     else if (user.password.length < 6) {
-      ionicToast.show('Mot de passe  incorrect', 'top', false, 2500);
+      ionicToast.show('Mot de passe  incorrect', 'top', false, 5000);
       validation = false;
     }
     if (validation) {
@@ -27,15 +27,15 @@ $scope.user=[];
         .success(function (data) {
           if(data.response == 'NOK') {
             $ionicLoading.hide();
-            ionicToast.show('Le format de l\'email est inscorrect', 'top', false, 2500);
+            ionicToast.show('Le format de l\'email est inscorrect', 'top', false, 5000);
           }
           if (data.response == 'wrong_pass') {
             $ionicLoading.hide();
-            ionicToast.show('Le mot de passe semble incorrect', 'top', false, 2500);
+            ionicToast.show('Le mot de passe semble incorrect', 'top', false, 5000);
           }
           if(data.response == 'user_does_not_exist') {
             $ionicLoading.hide();
-            ionicToast.show('L\'utilisateur n\'existe pas', 'top', false, 2500);
+            ionicToast.show('L\'utilisateur n\'existe pas', 'top', false,5000);
           }
           if(data.response == 'NOT_ENABLED') {
             $ionicLoading.hide();
@@ -45,23 +45,24 @@ $scope.user=[];
             }
           if (data.response == 'OK') {
             $ionicLoading.hide();
-            ionicToast.show('Bienvenue sur NEEMAA !', 'top', false, 2500);
+            ionicToast.show('Bienvenue sur NEEMAA !', 'top', false, 5000);
             localStorageService.set('is_authenticate', true);
             localStorageService.set('token', data.data.token);
             LoginService.checkIsPartner(localStorageService.get('token'))
               .success(function (data) {
                 var isPartner = JSON.parse(data.data);
+                console.log(JSON.stringify(isPartner));
                 localStorageService.set('isPartner', isPartner.partner);
                 $state.go('app.search');
             }).error(function (err) {
-              ionicToast.show('Une erreur est servenue', 'top', false, 2500);
+              ionicToast.show('Une erreur est servenue', 'top', false, 5000);
             });
 
           }
         })
         .error(function (err) {
           $ionicLoading.hide();
-          ionicToast.show('Une erreur est servenue', 'top', false, 2500);
+          ionicToast.show('Une erreur est servenue', 'top', false, 5000);
       });
     }
   };
@@ -71,10 +72,10 @@ $scope.user=[];
     LoginService.resendMail($rootScope.email,  localStorageService.get('token')).success(function(data, status, headers, config){
         if ("OK" == data.response) {
           $ionicLoading.hide();
-            ionicToast.show('Un email vous a été envoyé', 'top', false, 2500);
+            ionicToast.show('Un email vous a été envoyé', 'top', false, 5000);
         }
     }).error(function(data, status, headers, config){
-        ionicToast.show('Une erreur est servenue', 'top', false, 2500);
+        ionicToast.show('Une erreur est servenue', 'top', false, 5000);
     });
   }
 
@@ -91,4 +92,8 @@ $scope.user=[];
            $rootScope.focused = false;
          };
 
+         $scope.dismiss = function () {
+           $ionicLoading.hide();
+
+         };
 });

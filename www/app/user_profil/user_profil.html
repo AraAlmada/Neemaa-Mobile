@@ -22,37 +22,37 @@
         <div class="col">
           <select data-ng-model="user_profil.SkinType" class="text-form-select">
             <option value="" disabled>Type de peau</option>
-            <option data-ng-repeat="skin in user_profile.SkinType">{{skin}}</option>
+            <option data-ng-repeat="skin in user_profile.SkinType" value="{{skin}}" ng-selected ="skin == user_profil.SkinType">{{skin}}</option>
           </select>
         </div>
       </div>
       <div class="row">
         <div class="col">
           <select data-ng-model="user_profil.SkinColor" class="text-form-select">
-            <option value="" selected disabled>Couleur de peau</option>
-            <option data-ng-repeat="color in user_profile.SkinColor" style="background-color: {{color}};"></option>
+            <option value=""  disabled>Couleur de peau</option>
+            <option data-ng-repeat="color in user_profile.SkinColor" value="{{color}}" ng-selected ="color == user_profil.SkinColor" style="background-color: {{color}}">{{color}}</option>
           </select>
         </div>
       </div>
       <div class="row">
         <div class="col">
           <select data-ng-model="user_profil.HairType" class="text-form-select">
-            <option value="" selected disabled>Type de cheveux</option>
-            <option data-ng-repeat="hairType in user_profile.HairType">{{hairType}}</option>
+            <option value=""  disabled>Type de cheveux</option>
+            <option data-ng-repeat="hairType in user_profile.HairType" value="{{hairType}}" ng-selected ="hairType == user_profil.HairType">{{hairType}}</option>
           </select>
         </div>
       </div>
       <div class="row">
         <div class="col">
           <select data-ng-model="user_profil.HairColor" class="text-form-select">
-            <option value="" selected disabled>Couleur de cheveux</option>
-            <option data-ng-repeat="hairColor in user_profile.HairColor">{{hairColor}}</option>
+            <option value=""  disabled>Couleur de cheveux</option>
+            <option data-ng-repeat="hairColor in user_profile.HairColor" value="hairColor" ng-selected ="hairColor == user_profil.hairColor" >{{hairColor}}</option>
           </select>
         </div>
       </div>
       <div class="row">
         <div class="col">
-          <ion-checkbox class="partner-info-check">Je veux m'inscrire comme NeemStyler</ion-checkbox>
+          <ion-checkbox class="partner-info-check" data-ng-model="user_profil.partner">Je veux m'inscrire comme NeemStyler</ion-checkbox>
         </div>
       </div>
     </form>

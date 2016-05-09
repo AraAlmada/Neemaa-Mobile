@@ -1,4 +1,6 @@
 appContext.controller('MenuController', function($scope, $location, $ionicSideMenuDelegate, MenuService, localStorageService){
+  var userType= window.localStorage.getItem('typeProfile');
+
   $scope.showMenuButton = function () {
     if ($location.path() == '/app/register' || $location.path() == '/app/login') {
       return false;
@@ -8,6 +10,7 @@ appContext.controller('MenuController', function($scope, $location, $ionicSideMe
   };
 
   $scope.checkIsPartner = function () {
+    console.log(localStorageService.get('isPartner'));
     if (localStorageService.get('isPartner')) {
       return 1;
     } else {

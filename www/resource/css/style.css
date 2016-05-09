@@ -1,7 +1,18 @@
 /* Empty. Add your own CSS if you like */
-@import url(https://fonts.googleapis.com/css?family=Philosopher);
-@import url(https://fonts.googleapis.com/css?family=Overlock);
-
+/*@import url(https://fonts.googleapis.com/css?family=Philosopher);
+@import url(https://fonts.googleapis.com/css?family=Overlock);*/
+@font-face {
+  font-family: 'Philosopher';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Philosopher'), url(fonts/OttjxgcoEsufOGSINYBGLbrIa-7acMAeDBVuclsi6Gc.woff) format('woff');
+}
+@font-face {
+  font-family: 'Overlock';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Overlock'), local('Overlock-Regular'), url(fonts/Pr-80_x4SIOocpxz2VxC5XYhjbSpvc47ee6xR_80Hnw.woff) format('woff');
+}
 .title {
   color: #c7827a !important;
   font-weight: bold !important;
@@ -59,6 +70,7 @@ a {
   margin-bottom: 3%;
   padding: 5% !important;
   border-radius: 5px;
+  text-transform: lowercase;
 }
 
 .text-form-select {
@@ -268,6 +280,7 @@ h3 {
 }
 .window-info{
   margin: auto;
+  padding:15px;
 }
 .information-text{
   margin-bottom: 5px;
@@ -381,4 +394,17 @@ h3 {
  }
  .my-list .item-content{
    padding: 13px;
+ }.text-form::-webkit-input-placeholder{
+   text-transform: none;
+ }.text-form::-moz-placeholder{
+   text-transform: none;
+ }.loading-container .loading{
+   padding:5px;
+ }.option_select{
+   appearance:none;
+     -moz-appearance:none;
+     -webkit-appearance:none;
+
+ }.menu-lat {
+   margin-right: 5px;
  }
