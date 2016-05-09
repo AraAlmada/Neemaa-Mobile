@@ -1,4 +1,4 @@
-appContext.controller('UserProfilController',function($scope, UserProfilService, ionicToast, localStorageService){
+appContext.controller('UserProfilController',function($scope, UserProfilService, ionicToast, localStorageService,$state){
   $scope.user_profil = [];
   $scope.user_profile = UserProfilService.getSelectInfo;
   UserProfilService.getUser(localStorageService.get('token'))
@@ -8,10 +8,18 @@ appContext.controller('UserProfilController',function($scope, UserProfilService,
     .error(function (err) {
     console.log(err);
   });
-  $scope.save_profil = function (req) {
-    UserProfilService.saveUser(req, localStorageService.get('token'))
+
+  $scope.save_profil = function (user_profil) {
+
+
+    console.log(JSON.stringify(user_profil));
+    if(user_profil.partner){
+      localStorageService.set('isPartner',true);
+    }
+    UserProfilService.saveUser(user_profil, localStorageService.get('token'))
       .success(function (data) {
-        ionicToast.show('Votre profil à bien été mise à jour', 'top', true, 2500);
+        ionicToast.show('Votre profil à bien été mise à jour', 'top', false, 5000);
+          $state.go('app.search');
     })
       .error(function (err) {
         console.log(err);

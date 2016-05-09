@@ -2,11 +2,15 @@ appContext.controller('SearchController',function($scope, $location, localStorag
   $scope.serviceList = SearchService.getService();
   $scope.search = function (req) {
     var validation = true;
-    if (!Number.isInteger(req.cp) && req.cp.length != 5) {
+    if (!req.cp) {
+      ionicToast.show('Merci de remplir le formulaire', 'top', false, 5000);
+      validation = false;
+    }
+    else if (!Number.isInteger(req.cp) && req.cp.length != 5) {
       ionicToast.show('Le code postal semble incorrect, example: 94100', 'top', true, 2500);
       validation = false;
     }
-    if (req.service === undefined) {
+    else if (req.service === undefined) {
       ionicToast.show('Indiquez un service SVP !', 'top', true, 2500);
       validation = false;
     }
