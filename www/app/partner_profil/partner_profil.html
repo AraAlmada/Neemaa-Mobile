@@ -8,15 +8,15 @@
       <div class="col col-80">
         <div class="row">
           <div class="col col-50">
-            <input class="partner-profil-form-input" type="text" data-ng-model="partnerNfo.firstname" placeholder="Prénom" />
+            <input class="partner-profil-form-input" type="text" data-ng-model="partnerNfo.first_name" placeholder="Prénom" />
           </div>
           <div class="col col-50">
-            <input class="partner-profil-form-input" type="text" data-ng-model="partnerNfo.lastname" placeholder="Nom"/>
+            <input class="partner-profil-form-input" type="text" data-ng-model="partnerNfo.last_name" placeholder="Nom"/>
           </div>
         </div>
         <div class="row">
           <div class="col col-100">
-            <input class="partner-profil-form-input" type="text" data-ng-model="partnerNfo.adress" placeholder="Adresse">
+            <input class="partner-profil-form-input" type="text" data-ng-model="partnerNfo.address" placeholder="Adresse">
           </div>
         </div>
         <div class="row">
@@ -29,12 +29,12 @@
         </div>
         <div class="row">
           <div class="col col-100">
-            <input class="partner-profil-form-input" type="text" data-ng-model="partnerNfo.tel" placeholder="Téléphone"  >
+            <input class="partner-profil-form-input" type="text" data-ng-model="partnerNfo.phone" placeholder="Téléphone"  >
           </div>
         </div>
         <div class="row">
           <div class="col col-100">
-            <input class="partner-profil-form-input" type="text" data-ng-model="partnerNfo.email" placeholder="Email">
+            <input class="partner-profil-form-input text-form" type="text" data-ng-model="partnerNfo.email" placeholder="Email">
           </div>
         </div>
       </div>
@@ -98,12 +98,10 @@
       </div>
     </div>
     <br>
-    <br>
-    <br>
-  </ion-content>
-  <div class="bar bar-footer bar-balanced partner_bar_footer">
-    <div class="title">
-      <button class="button button-large button-positive neemaa-partner-button-footer">Enregistrer</button>
+    <div class="row">
+      <div class="col">
+        <button  class="button button-large button-positive neemaa-button-footer" data-ng-click="save_profilPatner(partnerNfo)">Enregistrer</button>
+      </div>
     </div>
-  </div>
+  </ion-content>
 </ion-view>
