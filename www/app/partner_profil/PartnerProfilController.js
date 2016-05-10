@@ -1,4 +1,4 @@
-appContext.controller('PartnerProfilController', function ($scope, PartnerProfilService, localStorageService) {
+appContext.controller('PartnerProfilController', function ($scope, PartnerProfilService, localStorageService,$state) {
   $scope.partnerNfo = [];
   PartnerProfilService.getNfo(localStorageService.get('token'))
     .success(function (data) {
@@ -8,4 +8,8 @@ appContext.controller('PartnerProfilController', function ($scope, PartnerProfil
     .error(function (err) {
 
   });
+
+  $scope.save_profilPatner = function(profil){
+    $state.go('app.search');
+  }
 });

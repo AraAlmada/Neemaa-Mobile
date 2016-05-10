@@ -3,6 +3,7 @@ appContext.controller('UserProfilController',function($scope, UserProfilService,
   $scope.user_profile = UserProfilService.getSelectInfo;
   UserProfilService.getUser(localStorageService.get('token'))
     .success(function (data) {
+
       $scope.user_profil = JSON.parse(data.data);
   })
     .error(function (err) {
