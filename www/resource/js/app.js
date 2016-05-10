@@ -92,6 +92,7 @@ var appContext = angular.module('neemaa', ['ionic', 'ionic-toast', 'LocalStorage
   })
   .state('app.userProfil', {
     url: '/user_profil',
+    cache:false,
     views: {
       'menuContent': {
         templateUrl: 'app/user_profil/user_profil.html',

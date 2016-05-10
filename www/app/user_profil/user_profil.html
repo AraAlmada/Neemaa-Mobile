@@ -4,17 +4,22 @@
       <div class="row">
         <div class="col">
           <img class="profil_picture" src="https://pixabay.com/static/uploads/photo/2014/04/02/14/07/barber-shop-306199_960_720.png" /><br>
+<<<<<<< HEAD
           <ion-radio class="user-profile-radio" data-ng-model="user_profil.gender" data-ng-value="H">Homme</ion-radio>
           <ion-radio class="user-profile-radio" data-ng-model="user_profil.gender"  data-ng-value="F">Femme</ion-radio>
+=======
+          <ion-radio class="user-profile-radio" ng-model="user_profil.sex" ng-value="H">Homme</ion-radio>
+          <ion-radio class="user-profile-radio" ng-model="user_profil.sex"  ng-value="F">Femme</ion-radio>
+>>>>>>> master
         </div>
         <div class="col">
-          <input type="text" data-ng-model="user_profil.lastname" class="profil-text-form" placeholder="Nom">
-          <input type="text" data-ng-model="user_profil.firstname" class="profil-text-form" placeholder="Prénom">
+          <input type="text" data-ng-model="user_profil.last_name" class="profil-text-form" placeholder="Nom">
+          <input type="text" data-ng-model="user_profil.first_name" class="profil-text-form" placeholder="Prénom">
           <input type="email" data-ng-model="user_profil.email" class="profil-text-form" placeholder="Email" >
-          <input type="tel" data-ng-model="user_profil.tel" class="profil-text-form" placeholder="mobile" >
-          <input type="text" data-ng-model="user_profil.adress" class="profil-text-form" placeholder="Adresse" >
-          <input type="text" data-ng-model="user_profil.cp" class="profil-text-form" placeholder="Code Postal" >
-          <input type="text" data-ng-model="user_profil.birthdate" class="profil-text-form" placeholder="date de naissance" >
+          <input type="tel" data-ng-model="user_profil.phone" class="profil-text-form" placeholder="mobile" >
+          <input type="text" data-ng-model="user_profil.address" class="profil-text-form" placeholder="Adresse" >
+          <input type="text" data-ng-model="user_profil.code_postal" class="profil-text-form" placeholder="Code Postal" >
+          <input type="text" data-ng-model="user_profil.birthdate " class="profil-text-form" placeholder="date de naissance" >
           <a ui-sref="app.userProfil">Changer de mot de passe</a>
         </div>
       </div>
