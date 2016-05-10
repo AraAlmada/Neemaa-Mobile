@@ -10,7 +10,6 @@ appContext.controller('MenuController', function($scope, $location, $ionicSideMe
   };
 
   $scope.checkIsPartner = function () {
-    console.log(localStorageService.get('isPartner'));
     if (localStorageService.get('isPartner')) {
       return 1;
     } else {

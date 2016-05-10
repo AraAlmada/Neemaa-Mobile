@@ -4,8 +4,8 @@
       <div class="row">
         <div class="col">
           <img class="profil_picture" src="https://pixabay.com/static/uploads/photo/2014/04/02/14/07/barber-shop-306199_960_720.png" /><br>
-          <ion-radio class="user-profile-radio" ng-model="user_profil.gender" ng-value="H">Homme</ion-radio>
-          <ion-radio class="user-profile-radio" ng-model="user_profil.gender"  ng-value="F">Femme</ion-radio>
+          <ion-radio class="user-profile-radio" data-ng-model="user_profil.gender" data-ng-value="H">Homme</ion-radio>
+          <ion-radio class="user-profile-radio" data-ng-model="user_profil.gender"  data-ng-value="F">Femme</ion-radio>
         </div>
         <div class="col">
           <input type="text" data-ng-model="user_profil.lastname" class="profil-text-form" placeholder="Nom">
@@ -62,7 +62,7 @@
         <button class="button button-large button-positive neemaa-button-footer" data-ng-click="save_profil(user_profil)">Enregistrer</button>
       </div>
     </div>
-    <div class="profil_clear">
+    <div class="profil_clear"></div>
 
   </ion-content>
 </ion-view>

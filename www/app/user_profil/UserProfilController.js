@@ -3,6 +3,7 @@ appContext.controller('UserProfilController',function($scope, UserProfilService,
   $scope.user_profile = UserProfilService.getSelectInfo;
   UserProfilService.getUser(localStorageService.get('token'))
     .success(function (data) {
+
       $scope.user_profil = JSON.parse(data.data);
   })
     .error(function (err) {
@@ -12,7 +13,6 @@ appContext.controller('UserProfilController',function($scope, UserProfilService,
   $scope.save_profil = function (user_profil) {
 
 
-    console.log(JSON.stringify(user_profil));
     if(user_profil.partner){
       localStorageService.set('isPartner',true);
     }

@@ -54,6 +54,10 @@ appContext.factory('UserProfilService',function($http){
       });
     },
     saveUser: function (user, token) {
+      console.warn("----------------------------------");
+      console.log(user);
+      console.warn("----------------------------------");
+    
       return $http({
         method: 'POST',
         url: 'http://dev.neemaa.com/api/user/update/profile?token=' + token,
@@ -65,8 +69,8 @@ appContext.factory('UserProfilService',function($http){
           return str.join("&");
         },
         data: {
-          first_name: user.first_name,
-          last_name: user.last_name,
+          first_name: user.firstname,
+          last_name: user.lastname,
           sex: user.gender,
           code_postal: user.cp,
           birthdate: user.birthdate,
@@ -74,6 +78,8 @@ appContext.factory('UserProfilService',function($http){
           skin_color: user.SkinColor,
           hair_type: user.HairType,
           hair_color: user.HairColor,
+          address:user.adress,
+          phone:user.tel,
           token: token
         }
       });
