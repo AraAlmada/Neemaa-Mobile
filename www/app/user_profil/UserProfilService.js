@@ -54,7 +54,7 @@ appContext.factory('UserProfilService',function($http){
       });
     },
     saveUser: function (user, token) {
-
+      user.partner = user.partner ? 1 : 0 ;
       return $http({
         method: 'POST',
         url: 'http://dev.neemaa.com/api/user/update/profile?token=' + token,
@@ -77,6 +77,7 @@ appContext.factory('UserProfilService',function($http){
           hair_type: user.HairType,
           hair_color: user.HairColor,
           is_partner : user.partner,
+          address : user.address,
           token: token
         }
       });
