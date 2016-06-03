@@ -1,1 +1,1 @@
-Cliquer <a href="http://localhost:8000/api/confirm/{{$token}}">ICI</a> pour confirmer votre compte
+Cliquer <a href="http://dev.neemaa.com/api/confirm/{{$token}}">ICI</a> pour confirmer votre compte

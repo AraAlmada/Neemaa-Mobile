@@ -6,7 +6,7 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'ionic-toast', 'starter.controllers', 'starter.services', 'starter.run', 'LocalStorageModule', 'ngFileUpload'])
 
-.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+.config(function($stateProvider, $httpProvider, $urlRouterProvider, $ionicConfigProvider) {
   $stateProvider
 
     .state('app', {
@@ -108,8 +108,22 @@ angular.module('starter', ['ionic', 'ionic-toast', 'starter.controllers', 'start
       }
     },
     requireLogin: true
+  })
+  .state('app.calendarNeemStyler', {
+    url: '/calendar-neemStyler',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/agenda-neemstyler.html',
+        controller: 'AgendaNeemStylerCtrl'
+      }
+    },
+    requireLogin: true
   });
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/search');
   $ionicConfigProvider.views.maxCache(0);
 });
+
+$httpProvider.defaults.withCredentials = true;
+$httpProvider.defaults.useXDomain = true;
+delete $httpProvider.defaults.headers.common['X-Requested-With'];

@@ -142,9 +142,9 @@ angular.module('starter.controllers', [])
         })
         .error(function (err) {
           if (err.error == 'user_not_valide') {
-            ionicToast.show('Confirmer votre compte par email, pour renvoyer, cliquer <a target="_blank" href="http://localhost:8000/api/resend/' + err.email + '">ici</a>', 'top', false, 6000);
+            ionicToast.show('Confirmer votre compte par email, pour renvoyer, cliquer <a target="_blank" href="http://dev.neemaa.com/api/resend/' + err.email + '">ici</a>', 'top', false, 6000);
           } else if (err.error == 'neemstyler_not_valide') {
-            ionicToast.show('Confirmer votre compte par email, pour renvoyer, cliquer <a target="_blank" href="http://localhost:8000/api/resend/' + err.email + '">ici</a>', 'top', false, 6000);
+            ionicToast.show('Confirmer votre compte par email, pour renvoyer, cliquer <a target="_blank" href="http://dev.neemaa.com/api/resend/' + err.email + '">ici</a>', 'top', false, 6000);
           }  else {
             ionicToast.show('Utilisateurs non reconnue', 'top', false, 2500);
             delete user.email;
@@ -225,9 +225,9 @@ angular.module('starter.controllers', [])
     male = true;
   };
 
-  ProfilUserService.getProfilImage('http://localhost:8000/img/client/' + localStorageService.get('email') + '/profil.jpg')
+  ProfilUserService.getProfilImage('http://dev.neemaa.com/img/client/' + localStorageService.get('email') + '/profil.jpg')
     .success(function () {
-      $scope.userProfilePicture = 'http://localhost:8000/img/client/' + localStorageService.get('email') + '/profil.jpg';
+      $scope.userProfilePicture = 'http://dev.neemaa.com/img/client/' + localStorageService.get('email') + '/profil.jpg';
     })
     .error(function () {
       $scope.userProfilePicture = 'img/profil_user_default.png';
@@ -302,7 +302,7 @@ angular.module('starter.controllers', [])
   $scope.uploadProfilePictureUser = function (file) {
     if (file.type == 'image/jpeg') {
       Upload.upload({
-        url: 'http://localhost:8000/api/upload-profil-picture-user',
+        url: 'http://dev.neemaa.com/api/upload-profil-picture-user',
         data: {
           file: file,
           email: localStorageService.get('email')
@@ -317,7 +317,7 @@ angular.module('starter.controllers', [])
           ionicToast.show('Votre photo à été mise à jour', 'top', false, 4000);
           $scope.userProfilePicture = 'img/wait.gif';
           setTimeout(function() {
-            $scope.userProfilePicture = 'http://localhost:8000/img/client/' + localStorageService.get('email') + '/profil.jpg';
+            $scope.userProfilePicture = 'http://dev.neemaa.com/img/client/' + localStorageService.get('email') + '/profil.jpg';
           }, 1000);
         });
     } else {
@@ -360,9 +360,9 @@ angular.module('starter.controllers', [])
   $scope.servicesNeem = {};
   $scope.neemstylerProfilPicture = 'img/profil_user_default.png';
 
-  ProfilNeemStylerService.getProfilImage('http://localhost:8000/img/neemstyler/' + localStorageService.get('email') + '/profil.jpg')
+  ProfilNeemStylerService.getProfilImage('http://dev.neemaa.com/img/neemstyler/' + localStorageService.get('email') + '/profil.jpg')
     .success(function () {
-      $scope.neemstylerProfilPicture = 'http://localhost:8000/img/neemstyler/' + localStorageService.get('email') + '/profil.jpg';
+      $scope.neemstylerProfilPicture = 'http://dev.neemaa.com/img/neemstyler/' + localStorageService.get('email') + '/profil.jpg';
     })
     .error(function () {
       $scope.neemstylerProfilPicture = 'img/profil_user_default.png';
@@ -482,7 +482,7 @@ angular.module('starter.controllers', [])
   $scope.uploadProfilePictureNeemStyler = function (file) {
     if (file.type == 'image/jpeg') {
       Upload.upload({
-        url: 'http://localhost:8000/api/upload-profil-picture-neemstyler',
+        url: 'http://dev.neemaa.com/api/upload-profil-picture-neemstyler',
         data: {
           file: file,
           email: localStorageService.get('email')
@@ -497,7 +497,7 @@ angular.module('starter.controllers', [])
           ionicToast.show('Votre photo à été mise à jour', 'top', false, 4000);
           $scope.neemstylerProfilPicture = 'img/wait.gif';
           setTimeout(function() {
-            $scope.neemstylerProfilPicture = 'http://localhost:8000/img/neemstyler/' + localStorageService.get('email') + '/profil.jpg';
+            $scope.neemstylerProfilPicture = 'http://dev.neemaa.com/img/neemstyler/' + localStorageService.get('email') + '/profil.jpg';
           }, 1000);
         });
     } else {
@@ -507,7 +507,7 @@ angular.module('starter.controllers', [])
 
   $scope.uploadPictureNeemPresente = function (files) {
     Upload.upload({
-      url: 'http://localhost:8000/api/upload-profil-picture-neemstyler-presente',
+      url: 'http://dev.neemaa.com/api/upload-profil-picture-neemstyler-presente',
       data: {
         file: files,
         email: localStorageService.get('email')
@@ -581,6 +581,13 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('AgendaNeemStylerCtrl', function ($scope, $state, ionicToast, localStorageService) {
-  console.log('scope agenda charged');
+.controller('AgendaNeemStylerCtrl', function ($scope, $state, ionicToast, localStorageService, GoogleAgendaService) {
+  setTimeout(function() {
+    GoogleAgendaService.getNfo(localStorageService.get('email'), localStorageService.get('token'))
+    .success(function(data) {
+      localStorageService.set('token', data.token);
+      localStorageService.set('auth', true);
+      console.log(data);
+    });
+  }, 1000);
 });

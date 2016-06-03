@@ -5,7 +5,7 @@ angular.module('starter.services', [])
     register: function (user) {
       return $http({
         method: 'POST',
-        url: 'http://localhost:8000/api/register',
+        url: 'http://dev.neemaa.com/api/register',
         headers: {'Content-Type': 'application/x-www-form-urlencoded'},
         transformRequest: function(obj) {
           var str = [];
@@ -24,7 +24,7 @@ angular.module('starter.services', [])
     login: function (user) {
       return $http({
         method: 'POST',
-        url: 'http://localhost:8000/api/login',
+        url: 'http://dev.neemaa.com/api/login',
         headers: {'Content-Type': 'application/x-www-form-urlencoded'},
         transformRequest: function(obj) {
           var str = [];
@@ -55,7 +55,7 @@ angular.module('starter.services', [])
     isAuthenticate: function (email, token) {
         return $http({
           method: 'GET',
-          url: 'http://localhost:8000/api/auth',
+          url: 'http://dev.neemaa.com/api/auth',
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
             'Authorization': `${email}token:${token}`
@@ -72,7 +72,7 @@ angular.module('starter.services', [])
     isAuthenticateNeemStyler: function (email, token) {
       return $http({
         method: 'GET',
-        url: 'http://localhost:8000/api/auth/neemstyler',
+        url: 'http://dev.neemaa.com/api/auth/neemstyler',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
           'Authorization': `${email}token:${token}`
@@ -89,7 +89,7 @@ angular.module('starter.services', [])
     isAuthenticateAdmin: function (email, token) {
       return $http({
         method: 'GET',
-        url: 'http://localhost:8000/api/auth/admin',
+        url: 'http://dev.neemaa.com/api/auth/admin',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
           'Authorization': `${email}token:${token}`
@@ -110,7 +110,7 @@ angular.module('starter.services', [])
     recoveryPassword: function (user) {
       return $http({
         method: 'POST',
-        url: 'http://localhost:8000/api/recovery',
+        url: 'http://dev.neemaa.com/api/recovery',
         headers: {'Content-Type': 'application/x-www-form-urlencoded'},
         transformRequest: function(obj) {
           var str = [];
@@ -129,7 +129,7 @@ angular.module('starter.services', [])
     getUser: function (email, token) {
       return $http({
         method: 'POST',
-        url: 'http://localhost:8000/api/get-user',
+        url: 'http://dev.neemaa.com/api/get-user',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
           'Authorization': `${email}token:${token}`
@@ -147,7 +147,7 @@ angular.module('starter.services', [])
     updateUser: function (email, token, user) {
       return $http({
         method: 'PUT',
-        url: 'http://localhost:8000/api/update-user',
+        url: 'http://dev.neemaa.com/api/update-user',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
           'Authorization': `${email}token:${token}`
@@ -165,7 +165,7 @@ angular.module('starter.services', [])
     updateUserToNeemstyler: function (email, token, user) {
       return $http({
         method: 'POST',
-        url: 'http://localhost:8000/api/update-user-to-neemstyler',
+        url: 'http://dev.neemaa.com/api/update-user-to-neemstyler',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
           'Authorization': `${email}token:${token}`
@@ -194,7 +194,7 @@ angular.module('starter.services', [])
     getNeemStyler: function (email, token) {
       return $http({
         method: 'GET',
-        url: 'http://localhost:8000/api/get-neemstyler',
+        url: 'http://dev.neemaa.com/api/get-neemstyler',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
           'Authorization': `${email}token:${token}`
@@ -211,7 +211,7 @@ angular.module('starter.services', [])
     updateNeemStyler: function (email, token, user) {
       return $http({
         method: 'POST',
-        url: 'http://localhost:8000/api/update-neemstyler',
+        url: 'http://dev.neemaa.com/api/update-neemstyler',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
           'Authorization': `${email}token:${token}`
@@ -240,7 +240,7 @@ angular.module('starter.services', [])
       addService: function (email, token, service) {
         return $http({
           method: 'POST',
-          url: 'http://localhost:8000/api/add-service',
+          url: 'http://dev.neemaa.com/api/add-service',
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
             'Authorization': `${email}token:${token}`
@@ -258,7 +258,7 @@ angular.module('starter.services', [])
       getServiceNeem: function (email, token, id) {
         return $http({
           method: 'POST',
-          url: 'http://localhost:8000/api/get-service',
+          url: 'http://dev.neemaa.com/api/get-service',
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
             'Authorization': `${email}token:${token}`
@@ -276,7 +276,7 @@ angular.module('starter.services', [])
       deleteServiceNeem: function (email, token, id) {
         return $http({
           method: 'POST',
-          url: 'http://localhost:8000/api/delete-service',
+          url: 'http://dev.neemaa.com/api/delete-service',
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
             'Authorization': `${email}token:${token}`
@@ -294,7 +294,7 @@ angular.module('starter.services', [])
       getAllService: function (email, token) {
         return $http({
           method: 'GET',
-          url: 'http://localhost:8000/api/get-all-service',
+          url: 'http://dev.neemaa.com/api/get-all-service',
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
             'Authorization': `${email}token:${token}`
@@ -315,7 +315,7 @@ angular.module('starter.services', [])
     getUser: function (email) {
       return $http({
         method: 'POST',
-        url: 'http://localhost:8000/api/getUser',
+        url: 'http://dev.neemaa.com/api/getUser',
         headers: {'Content-Type': 'application/x-www-form-urlencoded'},
         transformRequest: function(obj) {
           var str = [];
@@ -334,7 +334,7 @@ angular.module('starter.services', [])
       getNeemStylers: function (email, token, search) {
         return $http({
           method: 'POST',
-          url: 'http://localhost:8000/api/search',
+          url: 'http://dev.neemaa.com/api/search',
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
             'Authorization': `${email}token:${token}`
@@ -352,7 +352,7 @@ angular.module('starter.services', [])
       getNeemstyler: function (email, token, society) {
         return $http({
           method: 'POST',
-          url: 'http://localhost:8000/api/get-neemstyler-search',
+          url: 'http://dev.neemaa.com/api/get-neemstyler-search',
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
             'Authorization': `${email}token:${token}`
@@ -367,5 +367,24 @@ angular.module('starter.services', [])
         });
       }
     }
-  });
-
+  })
+  .factory('GoogleAgendaService', function($http) {
+    return {
+      getNfo: function (email, token) {
+        return $http({
+          method: 'get',
+          url: 'http://dev.neemaa.com/api/agenda',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Authorization': `${email}token:${token}`
+          },
+          transformRequest: function(obj) {
+            var str = [];
+            for(var p in obj)
+              str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+            return str.join("&");
+          }
+        });
+      }
+    }
+  })
