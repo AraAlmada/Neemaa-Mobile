@@ -45,8 +45,8 @@ a {
   padding: 15px;
 }
 
-span{
-  color: #FFEEED;
+.white-text {
+  color: white !important;
 }
 
 .footer-button {
@@ -206,4 +206,8 @@ span{
   font-weight: bold;
   font-size: 5vw;
   font-family: Philosopher sans-serif;
+}
+
+span{
+  color: #FFEEED;
 }
