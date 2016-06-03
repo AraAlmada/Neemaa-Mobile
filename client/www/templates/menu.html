@@ -16,25 +16,25 @@
     <ion-content>
       <ion-list>
         <ion-item menu-close ui-sref="app.login" data-ng-if="ifAuth()">
-          Login
+          Login <i class="ion-log-in"></i>
         </ion-item>
         <ion-item menu-close ui-sref="app.register" data-ng-if="ifAuth()">
-          Register
+          Register <i class="ion-edit"></i>
         </ion-item>
         <ion-item menu-close ui-sref="app.search" data-ng-if="!ifAuth()">
-          Search
+          Search <i class="icon ion-search"></i>
         </ion-item>
         <ion-item menu-close ui-sref="app.profil" data-ng-if="ifUser()">
-          Profil
+          Profil <i class="icon ion-person"></i>
         </ion-item>
         <ion-item menu-close ui-sref="app.profilNeemStyler" data-ng-if="ifNeemStyler()">
-          Profil
+          Profil <i class="icon ion-person"></i>
         </ion-item>
         <ion-item menu-close ui-sref="app.calendarNeemStyler" data-ng-if="ifNeemStyler()">
-          Agenda
+          Agenda <i class="ion-calendar"></i>
         </ion-item>
         <ion-item menu-close data-ng-if="ifUser()||ifAdmin()||ifNeemStyler()" data-ng-click="logout()">
-          Logout
+          Logout <i class="ion-log-out"></i>
         </ion-item>
       </ion-list>
     </ion-content>
