@@ -325,8 +325,7 @@ angular.module('starter.controllers', [])
           ionicToast.show('Votre photo à été mise à jour', 'top', false, 4000);
           $scope.userProfilePicture = 'img/wait.gif';
           setTimeout(function() {
-            delete $scope.userProfilePicture;
-            $scope.userProfilePicture = 'http://localhost:8000/img/client/' + localStorageService.get('email') + '/profil.jpg';
+            $scope.userProfilePicture = 'http://localhost:8000/img/client/' + localStorageService.get('email') + '/profil.jpg?lastmod=' + new Date();
           }, 1000);
         });
     } else {
