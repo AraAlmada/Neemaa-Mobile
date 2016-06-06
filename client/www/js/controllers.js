@@ -109,48 +109,54 @@ angular.module('starter.controllers', [])
 })
 
 .controller('LoginCtrl', function($scope, $state, ionicToast, localStorageService, LoginService) {
+  var validLoginButton = true;
   $scope.loginUser = function (user) {
-    if (!/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i.test(user.email)) {
-      ionicToast.show('L\'email semble incorrect', 'top', false, 2500);
-    } else if (user.password.length <= 5 || user.password.length >= 20) {
-      ionicToast.show('Votre mot de passe doit être compris entre 6 et 20 caracthere', 'top', false, 2500);
-    } else {
-      LoginService.login(user)
-        .success(function (data) {
-          if (data.data === 'user_logged') {
-            localStorageService.clearAll();
-            localStorageService.set('email', user.email);
-            localStorageService.set('token', data.token);
-            localStorageService.set('auth', true);
-            localStorageService.set('role', 'user');
-            $state.go('app.search');
-          } else if (data.data === 'admin_logged') {
-            localStorageService.clearAll();
-            localStorageService.set('email', user.email);
-            localStorageService.set('token', data.token);
-            localStorageService.set('auth', true);
-            localStorageService.set('role', 'admin');
-            $state.go('app.admin');
-          }  else {
-            localStorageService.clearAll();
-            localStorageService.set('email', user.email);
-            localStorageService.set('token', data.token);
-            localStorageService.set('auth', true);
-            localStorageService.set('role', 'neemstyler');
-            $state.go('app.profilNeemStyler');
-          }
-        })
-        .error(function (err) {
-          if (err.error == 'user_not_valide') {
-            ionicToast.show('Confirmer votre compte par email, pour renvoyer, cliquer <a target="_blank" href="http://localhost:8000/api/resend/' + err.email + '">ici</a>', 'top', false, 6000);
-          } else if (err.error == 'neemstyler_not_valide') {
-            ionicToast.show('Confirmer votre compte par email, pour renvoyer, cliquer <a target="_blank" href="http://localhost:8000/api/resend/' + err.email + '">ici</a>', 'top', false, 6000);
-          }  else {
-            ionicToast.show('Utilisateurs non reconnue', 'top', false, 2500);
-            delete user.email;
-            delete user.password;
-          }
-        });
+    if (validLoginButton) {
+      validLoginButton = false;
+      if (!/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i.test(user.email)) {
+        ionicToast.show('L\'email semble incorrect', 'top', false, 2500);
+      } else if (user.password.length <= 5 || user.password.length >= 20) {
+        ionicToast.show('Votre mot de passe doit être compris entre 6 et 20 caracthere', 'top', false, 2500);
+      } else {
+        LoginService.login(user)
+          .success(function (data) {
+            if (data.data === 'user_logged') {
+              localStorageService.clearAll();
+              localStorageService.set('email', user.email);
+              localStorageService.set('token', data.token);
+              localStorageService.set('auth', true);
+              localStorageService.set('role', 'user');
+              $state.go('app.search');
+            } else if (data.data === 'admin_logged') {
+              localStorageService.clearAll();
+              localStorageService.set('email', user.email);
+              localStorageService.set('token', data.token);
+              localStorageService.set('auth', true);
+              localStorageService.set('role', 'admin');
+              $state.go('app.admin');
+            }  else {
+              localStorageService.clearAll();
+              localStorageService.set('email', user.email);
+              localStorageService.set('token', data.token);
+              localStorageService.set('auth', true);
+              localStorageService.set('role', 'neemstyler');
+              $state.go('app.profilNeemStyler');
+            }
+            validLoginButton = true;
+          })
+          .error(function (err) {
+            if (err.error == 'user_not_valide') {
+              ionicToast.show('Confirmer votre compte par email, pour renvoyer, cliquer <a target="_blank" href="http://localhost:8000/api/resend/' + err.email + '">ici</a>', 'top', false, 6000);
+            } else if (err.error == 'neemstyler_not_valide') {
+              ionicToast.show('Confirmer votre compte par email, pour renvoyer, cliquer <a target="_blank" href="http://localhost:8000/api/resend/' + err.email + '">ici</a>', 'top', false, 6000);
+            }  else {
+              ionicToast.show('Utilisateurs non reconnue', 'top', false, 2500);
+              delete user.email;
+              delete user.password;
+            }
+            validLoginButton = true;
+          });
+      }
     }
   };
 })
@@ -202,7 +208,12 @@ angular.module('starter.controllers', [])
 })
 
 .controller('ProfilUserCtrl', function ($scope, $state, $ionicModal, Upload, ProfilUserService, localStorageService, ionicToast) {
-  var select = document.getElementById('profil-select-color'), female = false, male = false;
+  var select = document.getElementById('profil-select-color'), female = false, male = false, chargPage = true;
+
+  $scope.showLoadingPanelUser = function() {
+    return chargPage;
+  };
+
   select.onchange = function () {
     select.className = this.options[this.selectedIndex].className;
   };
@@ -246,9 +257,12 @@ angular.module('starter.controllers', [])
           female = true;
         }
         $scope.updateProfilUserN = data.response[0];
+        chargPage = false;
       })
       .error(function () {
         ionicToast.show('Une erreur est survenue', 'top', false, 4000);
+        chargPage = false;
+        $state.go('app.login');
       });
   }, 1000);
 
