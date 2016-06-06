@@ -1,5 +1,10 @@
 <ion-view view-title="Neemaa">
   <ion-content class="content-app">
+    <div class="chargUser" data-ng-if="showLoadingPanelUser()">
+      <div class="row" layout-align="center center">
+        <span style="color: black">TEST</span>
+      </div>
+    </div>
     <div class="list">
       <div class="row">
         <div class="col">
@@ -117,16 +122,16 @@
         </div>
       </div>
 
-      <div class="row">
+      <!-- <div class="row">
         <div class="col">
           <ion-checkbox class="home-checkbox" data-ng-model="updateProfilUserN.neemstyler">Devenir NeemStyler</ion-checkbox>
         </div>
-      </div>
+      </div> -->
     </div>
 
   </ion-content>
 
-  <div class="bar bar-footer">
+  <div class="bar bar-footer" data-ng-if="!showLoadingPanelUser()">
     <button class="footer-button" data-ng-click="updateProfilUser(updateProfilUserN)">Confirmer</button>
   </div>
 </ion-view>
