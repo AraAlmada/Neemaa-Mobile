@@ -236,13 +236,7 @@ angular.module('starter.controllers', [])
     male = true;
   };
 
-  ProfilUserService.getProfilImage('http://localhost:8000/img/client/' + localStorageService.get('email') + '/profil.jpg')
-    .success(function () {
-      $scope.userProfilePicture = 'http://localhost:8000/img/client/' + localStorageService.get('email') + '/profil.jpg';
-    })
-    .error(function () {
-      $scope.userProfilePicture = 'img/profil_user_default.png';
-    });
+  $scope.userProfilePicture = 'http://localhost:8000/img/client/' + localStorageService.get('email') + '/profil.jpg';
 
   setTimeout(function () {
     ProfilUserService.getUser(localStorageService.get('email'), localStorageService.get('token'))
@@ -331,6 +325,7 @@ angular.module('starter.controllers', [])
           ionicToast.show('Votre photo à été mise à jour', 'top', false, 4000);
           $scope.userProfilePicture = 'img/wait.gif';
           setTimeout(function() {
+            delete $scope.userProfilePicture;
             $scope.userProfilePicture = 'http://localhost:8000/img/client/' + localStorageService.get('email') + '/profil.jpg';
           }, 1000);
         });
