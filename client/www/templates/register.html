@@ -1,6 +1,6 @@
 <ion-view view-title="Neemaa">
   <ion-content class="content-app">
-    <h4 class="white-text">Créer ton compte:</h4>
+    <h4 class="white-text padding-login"><i class="ion-edit"></i> Créer ton compte:</h4>
     <div class="list">
       <label class="item item-input home-form">
         <input type="email" placeholder="Email" data-ng-model="registerUser.email">
@@ -14,9 +14,9 @@
       <label class="item item-input home-form" data-ng-if="ifNeemStyler()">
         <input type="text" placeholder="Societe" data-ng-model="registerUser.society">
       </label>
-      <ion-checkbox class="home-checkbox" data-ng-click="neemStyler()">Je veux m'inscrire en tant que NeemStyler !</ion-checkbox>
+      <ion-checkbox class="home-checkbox test" data-ng-click="neemStyler()"><span class="span">Je veux m'inscrire en tant que NeemStyler !</span></ion-checkbox>
     </div>
-    <div class="white-text">Déja inscrit, cliquer <a ui-sref="app.login">ICI</a></div>
+    <div class="white-text padding-login">Déja inscrit, cliquer <a ui-sref="app.login">ICI</a></div>
   </ion-content>
 
   <div class="bar bar-footer">

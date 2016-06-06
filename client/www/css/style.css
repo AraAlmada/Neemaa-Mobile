@@ -208,6 +208,11 @@ a {
   font-family: Philosopher sans-serif;
 }
 
-span{
+.span{
   color: #FFEEED;
+  font-size: 3.5vw;
+}
+
+.padding-login{
+  padding-left: 10px;
 }
