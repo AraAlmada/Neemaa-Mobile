@@ -223,3 +223,9 @@ a {
   min-height: 100%;
   z-index: 99;
 }
+
+#chargement{
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50%;
+}
