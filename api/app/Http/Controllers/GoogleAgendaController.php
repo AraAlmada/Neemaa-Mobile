@@ -10,13 +10,25 @@ class GoogleAgendaController extends Controller
 {
     public function getNfo(Request $request) {
         $calendar = new GoogleCalendar;
-        $result = $calendar->createCalendarNeem();
-        //$calendarId = "YourCalendarID";
-        //$result = $calendar->get($calendarId);
+        $calendar->createCalendarNeem('test', 'UTC');
+        $result = $calendar->getAllCalendarNeem();
+
         return response()->json([
-                'data' => $request->data,
-                'token' => $request->token,
-                'response' => $result
-            ], 200);
+            'data' => $request->data,
+            'token' => $request->token,
+            'response' => $result
+        ], 200);
+        // while(true) {
+        //   foreach ($result->getItems() as $calendarListEntry) {
+        //     echo $calendarListEntry->getId().'<br>';
+        //   }
+        //   $pageToken = $result->getNextPageToken();
+        //   if ($pageToken) {
+        //     $optParams = array('pageToken' => $pageToken);
+        //     $result = $service->calendarList->listCalendarList($optParams);
+        //   } else {
+        //     break;
+        //   }
+        // }
     }
 }
