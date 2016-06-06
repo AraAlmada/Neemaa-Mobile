@@ -208,10 +208,14 @@ a {
   font-family: Philosopher sans-serif;
 }
 
-span{
+.span{
   color: #FFEEED;
+  font-size: 3.5vw;
 }
 
+.padding-login{
+  padding-left: 10px;
+}
 .chargUser {
   background-color: #B55370;
   position: absolute;
