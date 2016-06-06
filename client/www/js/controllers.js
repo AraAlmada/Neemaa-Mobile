@@ -366,15 +366,8 @@ angular.module('starter.controllers', [])
   };
 
   $scope.servicesNeem = {};
-  $scope.neemstylerProfilPicture = 'img/profil_user_default.png';
 
-  ProfilNeemStylerService.getProfilImage('http://localhost:8000/img/neemstyler/' + localStorageService.get('email') + '/profil.jpg')
-    .success(function () {
-      $scope.neemstylerProfilPicture = 'http://localhost:8000/img/neemstyler/' + localStorageService.get('email') + '/profil.jpg';
-    })
-    .error(function () {
-      $scope.neemstylerProfilPicture = 'img/profil_user_default.png';
-    });
+  $scope.neemstylerProfilPicture = 'http://localhost:8000/img/neemstyler/' + localStorageService.get('email') + '/profil.jpg';
 
   setTimeout(function () {
     ProfilNeemStylerService.getNeemStyler(localStorageService.get('email'), localStorageService.get('token'))
@@ -505,7 +498,7 @@ angular.module('starter.controllers', [])
           ionicToast.show('Votre photo à été mise à jour', 'top', false, 4000);
           $scope.neemstylerProfilPicture = 'img/wait.gif';
           setTimeout(function() {
-            $scope.neemstylerProfilPicture = 'http://localhost:8000/img/neemstyler/' + localStorageService.get('email') + '/profil.jpg';
+            $scope.neemstylerProfilPicture = 'http://localhost:8000/img/neemstyler/' + localStorageService.get('email') + '/profil.jpg?lastmod=' + new Date();
           }, 1000);
         });
     } else {
