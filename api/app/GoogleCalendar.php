@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Config;
 class GoogleCalendar {
 
     protected $client;
-
     protected $service;
 
     function __construct() {
@@ -46,5 +45,24 @@ class GoogleCalendar {
     {
         $results = $this->service->calendars->get($calendarId);
         dd($results);
+    }
+
+    public function createCalendarNeem($Summary, $timezone) {
+        $calendar = new \Google_Service_Calendar_Calendar();
+        $calendar->setSummary('calendarSummary');
+        $calendar->setTimeZone('America/Los_Angeles');
+
+        $createdCalendar = $this->service->calendars->insert($calendar);
+
+        return $createdCalendar;
+    }
+
+    public function deleteCalendarNeem($id) {
+        $this->service->calendars->delete($id);
+    }
+
+    public function getAllCalendarNeem() {
+        $calendarList  = $this->service->calendarList->listCalendarList();
+        return $calendarList;
     }
 }

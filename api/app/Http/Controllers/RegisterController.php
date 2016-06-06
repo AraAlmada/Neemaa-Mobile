@@ -70,7 +70,7 @@ class RegisterController extends Controller
                 'valide' => 0
             ]], 200);
     }
-    
+
     public function confirm($token) {
 
 

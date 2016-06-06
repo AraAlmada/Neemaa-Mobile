@@ -21,7 +21,7 @@ return [
     | OAuth Credentials under Service Account
     |
     */
-    'service_account_name' => '570991377978-compute@developer.gserviceaccount.com',
+    'service_account_name' => 'neemaa-1330@appspot.gserviceaccount.com',
 
     /*
     |--------------------------------------------------------------------------
