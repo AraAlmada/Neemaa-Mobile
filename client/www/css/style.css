@@ -14,6 +14,7 @@ a {
 .bar-footer {
   background-color: #b55370 !important;
   height: 12% !important;
+  margin-bottom: -10px;
 }
 
 .ion-navicon {
@@ -228,15 +229,15 @@ a {
   margin-right: auto;
   margin-top: 50%;
 }
-
-@media only screen
-and (min-device-width : 320px)
-and (max-device-width : 568px) {
+@media screen and (device-aspect-ratio: 40/71) {
   .profil-user-form-text{
-    height: 23px !important;
+    height: 25px !important;
   }
-  .bar-footer{
-    margin-bottom: -10px;
+  .search-select-form{
+    height: 26px;
+  }
+  .search-select-form {
+    padding: 1%;
   }
 }
 
