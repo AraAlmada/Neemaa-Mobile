@@ -609,4 +609,8 @@ angular.module('starter.controllers', [])
       console.log(data.response);
     });
   }, 2000);
+
+  $scope.onTimeSelected = function (selectedTime) {
+    console.log(selectedTime);
+  };
 });
