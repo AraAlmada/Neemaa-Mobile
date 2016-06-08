@@ -306,6 +306,23 @@ angular.module('starter.services', [])
             return str.join('&');
           }
         });
+      },
+
+      getAllServices: function (email, token) {
+        return $http({
+          method: 'GET',
+          url: 'http://localhost:8000/api/get-all-services',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Authorization': `${email}token:${token}`
+          },
+          transformRequest: (obj) => {
+            let str = [];
+            for (let p in obj)
+              str.push(encodeURIComponent(p) + '=' + encodeURIComponent(obj[p]));
+            return str.join('&');
+          }
+        });
       }
     }
   })

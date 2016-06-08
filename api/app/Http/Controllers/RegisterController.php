@@ -8,6 +8,7 @@ use App\Http\Requests;
 use Validator;
 use DB;
 use Mail;
+use Storage;
 
 class RegisterController extends Controller
 {
@@ -46,6 +47,8 @@ class RegisterController extends Controller
                     'token_activator' => $token,
                     'created_at' => date('Y-m-d H:i:s')
                 ]);
+                $disk = file_get_contents(base_path() . '/public/img/profil.jpg');
+                file_put_contents(base_path() . '/public/img/neemstyler/' . $request->email . '/profil.jpg', $disk, LOCK_EX);
             }catch(Exception $e){
                 return response()->json(['error' => $e], 401);
             }
@@ -57,6 +60,8 @@ class RegisterController extends Controller
                     'token_activator' => $token,
                     'created_at' => date('Y-m-d H:i:s')
                 ]);
+                $disk = file_get_contents(base_path() . '/public/img/profil.jpg');
+                file_put_contents(base_path() . '/public/img/client/' . $request->email . '/profil.jpg', $disk, LOCK_EX);
             }catch(Exception $e){
                 return response()->json(['error' => $e], 401);
             }
