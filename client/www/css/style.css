@@ -282,3 +282,11 @@ span{
 #desactiver{
   background-color: red;
 }
+
+label{
+  border: none !important;
+}
+
+.mar-login{
+  margin-bottom: 10px !important;
+}
