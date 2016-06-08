@@ -24,7 +24,7 @@
     <div class="row">
       <div class="col">
         <div class="list">
-          <select data-ng-model="searchF.service" class="search-select-form">
+          <select data-ng-model="searchF.service" class="search-select-form" id="serve-search">
             <option disabled selected value="">* Tous les services</option>
             <option data-ng-repeat="service in searchService" value="{{service.name}}">{{ service.name }}</option>
             <!--<option value="" disabled selected>* Service souhaité</option>
