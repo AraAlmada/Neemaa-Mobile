@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'ionic-toast', 'starter.controllers', 'starter.services', 'starter.run', 'LocalStorageModule', 'ngFileUpload'])
+angular.module('starter', ['ionic', 'ionic-toast', 'starter.controllers', 'starter.services', 'starter.run', 'LocalStorageModule', 'ngFileUpload', 'ui.rCalendar'])
 
 .config(function($stateProvider, $httpProvider, $urlRouterProvider, $ionicConfigProvider) {
   $stateProvider
