@@ -539,6 +539,9 @@ angular.module('starter.controllers', [])
         $scope.updateProfilNeemStyler.image = ['img/wait.gif'];
         setTimeout(function() {
           $scope.updateProfilNeemStyler.image = data.data.response;
+          for (var i = 0; i < $scope.updateProfilNeemStyler.image.length; i++) {
+            $scope.updateProfilNeemStyler.image[i] = $scope.updateProfilNeemStyler.image[i] + '?lastmod=' + new Date();
+          }
         }, 1000);
         picturePresente = true;
       });
