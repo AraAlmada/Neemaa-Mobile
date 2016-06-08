@@ -1,12 +1,19 @@
 <ion-view view-title="Neemaa">
-
   <ion-content class="content-profil-neemstyler">
+    <div class="chargNeemStyler" data-ng-if="chargPageNeem()" style="background-color: #FFEEED; position: absolute; z-index: 99;min-width: 100%;min-height: 100%;">
+      test
+    </div>
     <div class="row">
       <div class="col col-33">
         <img src="{{ neemstylerProfilPicture }}" style="width: 100%;" />
         <a ngf-select="uploadProfilePictureNeemStyler($file)">Editer</a>
       </div>
       <div class="col">
+        <div class="row">
+          <div class="col">
+            <input type="text" data-ng-model="updateProfilNeemStyler.society" class="profil-neem-form-text" placeholder="Société" />
+          </div>
+        </div>
         <div class="row">
           <div class="col">
             <input type="text" data-ng-model="updateProfilNeemStyler.firstname" class="profil-neem-form-text" placeholder="Prénom" />
@@ -53,10 +60,10 @@
     </div>
     <div class="row">
       <div class="col col-50">
-        <ion-checkbox class="neem-checkbox" data-ng-checked="ifCheckedHome()" data-ng-click="checkHome()" data-ng-model="updateProfilNeemStyler.home">A domicile</ion-checkbox>
+        <ion-checkbox class="neem-checkbox" data-ng-checked="ifCheckedHome()" data-ng-click="checkHome()" data-ng-model="updateProfilNeemStyler.home"><span class="item-content">A domicile</span></ion-checkbox>
       </div>
       <div class="col col-50">
-        <ion-checkbox class="neem-checkbox" data-ng-checked="ifCheckedSaloon()" data-ng-click="checkSaloon()" data-ng-model="updateProfilNeemStyler.saloon">En salon</ion-checkbox>
+        <ion-checkbox class="neem-checkbox" data-ng-checked="ifCheckedSaloon()" data-ng-click="checkSaloon()" data-ng-model="updateProfilNeemStyler.saloon"><span class="item-content">En salon</span></ion-checkbox>
       </div>
     </div>
     <div class="row">
@@ -72,10 +79,10 @@
     </div>
     <div class="row text-center" data-ng-repeat="service in servicesNeem">
       <div class="col col-50">
-        <span>{{ service.name }}</span>
+        <span class="item-content">{{ service.name }}</span>
       </div>
       <div class="col col-33">
-        <span>{{ service.price }}</span>
+        <span class="item-content">{{ service.price }}</span>
       </div>
       <div class="col col-10">
         <i class="icon ion-close" style="color: red" data-ng-click="deleteService(service.id)"></i>
@@ -111,7 +118,7 @@
 
   </ion-content>
 
-  <div class="bar bar-footer bar-footer-neemstyler">
+  <div class="bar bar-footer bar-footer-neemstyler" data-ng-if="!chargPageNeem()">
     <button class="footer-button-neemstyler" data-ng-click="updateProfilNeemStylerN(updateProfilNeemStyler)">Confirmer</button>
   </div>
 </ion-view>
