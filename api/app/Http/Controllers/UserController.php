@@ -26,7 +26,7 @@ class UserController extends Controller
 
         for ($i = 1; $i <= 5; $i++) {
             if (Storage::disk('publicNeemPresente')->has('file'.$i.'.jpg') == true) {
-                $image[] = 'http://dev.neemaa.com/img/neemstyler/benjamin.sansy@gmail.com/presente/file'.$i.'.jpg';
+                $image[] = 'http://localhost:8000/img/neemstyler/benjamin.sansy@gmail.com/presente/file'.$i.'.jpg';
             }
         }
         return response()->json([
@@ -165,7 +165,7 @@ class UserController extends Controller
                 $file->move(
                     base_path() . '/public/img/neemstyler/' . $request->email . '/presente', 'file' . ($i + 1) . '.' . $extFile
                 );
-                $image[] = 'http://dev.neemaa.com/img/neemstyler/' . $request->email . '/presente/file' . ($i + 1) . '.' . $extFile;
+                $image[] = 'http://localhost:8000/img/neemstyler/' . $request->email . '/presente/file' . ($i + 1) . '.' . $extFile;
             }
         }
 

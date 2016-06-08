@@ -123,7 +123,3 @@ angular.module('starter', ['ionic', 'ionic-toast', 'starter.controllers', 'start
   $urlRouterProvider.otherwise('/app/search');
   $ionicConfigProvider.views.maxCache(0);
 });
-
-$httpProvider.defaults.withCredentials = true;
-$httpProvider.defaults.useXDomain = true;
-delete $httpProvider.defaults.headers.common['X-Requested-With'];

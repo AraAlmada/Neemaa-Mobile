@@ -597,7 +597,7 @@ angular.module('starter.controllers', [])
     .success(function(data) {
       localStorageService.set('token', data.token);
       localStorageService.set('auth', true);
-      console.log(data);
+      console.log(data.response);
     });
-  }, 1000);
+  }, 2000);
 });

@@ -390,7 +390,7 @@ angular.module('starter.services', [])
       getNfo: function (email, token) {
         return $http({
           method: 'get',
-          url: 'http://localhost:8000/api/agenda',
+          url: 'http://localhost:8000/api/get/agenda-info',
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
             'Authorization': `${email}token:${token}`
