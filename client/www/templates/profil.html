@@ -9,7 +9,7 @@
       <div class="row">
         <div class="col">
           <div class="row">
-            <div class="col text-center">
+             <div class="col text-center">
               <img src="{{ userProfilePicture }}" style="width: 100%; border-radius: 50%">
               <a ngf-select="uploadProfilePictureUser($file)">Editer</a>
             </div>
@@ -79,22 +79,21 @@
 
       <div class="row">
         <div class="col">
-          <select data-ng-model="updateProfilUserN.carnation_color" id="profil-select-color" class="search-select-form">
+          <select data-ng-model="updateProfilUserN.carnation_color" id="profil-select-color" class="search-select-form color{{ updateProfilUserN.carnation_color }}">
             <option value="" disabled selected>Carnation</option>
-            <option class="color1" value="1"></option>
-            <option class="color2" value="2"></option>
-            <option class="color3" value="3"></option>
-            <option class="color4" value="4"></option>
-            <option class="color5" value="5"></option>
-            <option class="color6" value="6"></option>
-            <option class="color7" value="7"></option>
-            <option class="color8" value="8"></option>
-            <option class="color9" value="9"></option>
-            <option class="color10" value="10"></option>
+            <option class="color1 search-select-form" value="1"></option>
+            <option class="color2 search-select-form" value="2"></option>
+            <option class="color3 search-select-form" value="3"></option>
+            <option class="color4 search-select-form" value="4"></option>
+            <option class="color5 search-select-form" value="5"></option>
+            <option class="color6 search-select-form" value="6"></option>
+            <option class="color7 search-select-form" value="7"></option>
+            <option class="color8 search-select-form" value="8"></option>
+            <option class="color9 search-select-form" value="9"></option>
+            <option class="color10 search-select-form" value="10"></option>
           </select>
         </div>
       </div>
-
       <div class="row">
         <div class="col">
           <select data-ng-model="updateProfilUserN.hair_type" class="search-select-form">
@@ -122,11 +121,11 @@
         </div>
       </div>
 
-      <!-- <div class="row">
+      <div class="row">
         <div class="col">
           <ion-checkbox class="home-checkbox" data-ng-model="updateProfilUserN.neemstyler">Devenir NeemStyler</ion-checkbox>
         </div>
-      </div> -->
+      </div>
     </div>
 
   </ion-content>
