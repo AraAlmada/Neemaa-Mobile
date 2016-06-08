@@ -41,8 +41,8 @@ Route::group(['prefix' => 'api', 'middleware' => 'auth'], function () {
     Route::post('/update-user-to-neemstyler', 'UserController@updateUserToNeemstyler');
     Route::post('/search', 'SearchController@getList');
     Route::post('/get-neemstyler-search', 'SearchController@getNeem');
-    Route::get('get-all-service', 'ServiceController@getAllService');
-    Route::post('upload-profil-picture-user', 'UserController@uploadProfilPictureUser');
+    Route::get('/get-all-services', 'ServiceController@getAllService');
+    Route::post('/upload-profil-picture-user', 'UserController@uploadProfilPictureUser');
 });
 
 Route::group(['prefix' => 'api', 'middleware' => 'neemstyler'], function () {
@@ -56,9 +56,9 @@ Route::group(['prefix' => 'api', 'middleware' => 'neemstyler'], function () {
     Route::post('/add-service', 'ServiceController@addService');
     Route::post('/get-service', 'ServiceController@getService');
     Route::post('/delete-service', 'ServiceController@deleteService');
-    Route::get('get-all-service', 'ServiceController@getAllService');
-    Route::post('upload-profil-picture-neemstyler', 'UserController@uploadProfilPictureNeemStyler');
-    Route::post('upload-profil-picture-neemstyler-presente', 'UserController@uploadProfilPictureNeemStylerPresente');
+    Route::get('/get-all-service', 'ServiceController@getAllService');
+    Route::post('/upload-profil-picture-neemstyler', 'UserController@uploadProfilPictureNeemStyler');
+    Route::post('/upload-profil-picture-neemstyler-presente', 'UserController@uploadProfilPictureNeemStylerPresente');
 });
 
 Route::group(['prefix' => 'api', 'middleware' => 'admin'], function () {

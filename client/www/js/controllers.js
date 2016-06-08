@@ -166,12 +166,21 @@ angular.module('starter.controllers', [])
   $scope.searchService = {};
 
   setTimeout(function () {
-    ServiceNeemStylerService.getAllService(localStorageService.get('email'), localStorageService.get('token'))
-      .success(function (data) {
-        localStorageService.set('token', data.token);
-        localStorageService.set('auth', true);
-        $scope.searchService = data.response;
-      })
+    if (localStorageService.get('role') == 'user') {
+      ServiceNeemStylerService.getAllServices(localStorageService.get('email'), localStorageService.get('token'))
+        .success(function (data) {
+          localStorageService.set('token', data.token);
+          localStorageService.set('auth', true);
+          $scope.searchService = data.response;
+        });
+    } else if (localStorageService.get('role') == 'neemstyler') {
+      ServiceNeemStylerService.getAllService(localStorageService.get('email'), localStorageService.get('token'))
+        .success(function (data) {
+          localStorageService.set('token', data.token);
+          localStorageService.set('auth', true);
+          $scope.searchService = data.response;
+        });
+    }
   }, 1000);
 
   $scope.searchForm = function (searchF) {
