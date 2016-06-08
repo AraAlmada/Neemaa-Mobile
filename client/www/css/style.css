@@ -229,6 +229,10 @@ a {
   .search-select-form {
     padding: 1%;
   }
+  #serve-search{
+    padding: 10px 0 10px 10px !important;
+    height: 45px;
+  }
 }
 
 span{
@@ -251,4 +255,8 @@ span{
 .bar-footer-list-neemstyler{
   background-color: #b55370 !important;
   height: 30% !important;
+}
+
+#serve-search{
+  padding: 15px 0 10px 10px;
 }
