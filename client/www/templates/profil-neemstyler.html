@@ -8,7 +8,9 @@
     <div class="row">
       <div class="col col-33">
         <img src="{{ neemstylerProfilPicture }}" style="width: 100%;" />
-        <a ngf-select="uploadProfilePictureNeemStyler($file)">Editer</a>
+        <a ngf-select="uploadProfilePictureNeemStyler($file)">Editer</a><br>
+        <span class="item-content">Compte : <span id="active">Activer</span></span>
+        <span class="item-content" style="display: none">Compte : <span id="desactiver">Desactiver</span></span>
       </div>
       <div class="col">
         <div class="row">
@@ -101,7 +103,7 @@
         <input type="text" data-ng-model="serviceNeemStyler.price" class="profil-neem-form-text" placeholder="Prix" />
       </div>
       <div class="col col-20">
-        <input type="text" data-ng-model="" class="profil-neem-form-text" placeholder="Temps" />
+        <input type="text" class="profil-neem-form-text" placeholder="Temps" />
       </div>
       <div class="col col-10">
         <i class="icon ion-plus" data-ng-click="neemStylerAddService(serviceNeemStyler)"></i>
@@ -113,9 +115,9 @@
         <h5>Télécharger des photos de votre services</h5>
       </div>
     </div>
-    <div class="row text-center" data-ng-if="picturePresenteNeem()">
-      <div class="col col-20" data-ng-repeat="image in updateProfilNeemStyler.image">
-        <img src="{{image}}" style="width: 100%" />
+    <div class="row" data-ng-if="picturePresenteNeem()">
+      <div class="col col-20 center-img" data-ng-repeat="image in updateProfilNeemStyler.image">
+        <img class="img-service" src="{{image}}"/>
       </div>
     </div>
     <div class="row text-center">

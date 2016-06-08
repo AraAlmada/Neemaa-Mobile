@@ -233,6 +233,10 @@ a {
     padding: 10px 0 10px 10px !important;
     height: 45px;
   }
+  .img-service{
+    width: 55px !important;
+    height: 55px !important;
+  }
 }
 
 span{
@@ -259,4 +263,22 @@ span{
 
 #serve-search{
   padding: 15px 0 10px 10px;
+}
+
+.img-service{
+  width: 60px;
+  height: 60px;
+}
+
+.center-img{
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+#active{
+  background-color: green;
+}
+
+#desactiver{
+  background-color: red;
 }
