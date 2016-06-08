@@ -145,6 +145,7 @@ angular.module('starter.controllers', [])
             validLoginButton = true;
           })
           .error(function (err) {
+            localStorageService.clearAll();
             if (err.error == 'user_not_valide') {
               ionicToast.show('Confirmer votre compte par email, pour renvoyer, cliquer <a target="_blank" href="http://localhost:8000/api/resend/' + err.email + '">ici</a>', 'top', false, 6000);
             } else if (err.error == 'neemstyler_not_valide') {
@@ -344,7 +345,7 @@ angular.module('starter.controllers', [])
 })
 
 .controller('ProfilNeemStylerCtrl', function ($scope, $state, ProfilNeemStylerService, Upload, ServiceNeemStylerService, ionicToast, localStorageService) {
-  var home = 0, saloon = 0, picturePresente = false, id_neem;
+  var home = 0, saloon = 0, picturePresente = false, id_neem, chargPage = true;
 
   $scope.picturePresenteNeem = function () {
     return picturePresente;
@@ -372,6 +373,10 @@ angular.module('starter.controllers', [])
     } else {
       saloon = 1;
     }
+  };
+
+  $scope.chargPageNeem = function() {
+    return chargPage;
   };
 
   $scope.servicesNeem = {};
@@ -413,6 +418,7 @@ angular.module('starter.controllers', [])
         localStorageService.set('token', err.token);
         localStorageService.set('auth', true);
       });
+      chargPage = false;
   }, 2000);
 
   $scope.updateProfilNeemStylerN = function (user) {

@@ -1,6 +1,8 @@
 <ion-view view-title="Neemaa">
-
   <ion-content class="content-profil-neemstyler">
+    <div class="chargNeemStyler" data-ng-if="chargPageNeem()" style="background-color: #FFEEED; position: absolute; z-index: 99;min-width: 100%;min-height: 100%;">
+      test
+    </div>
     <div class="row">
       <div class="col col-33">
         <img src="{{ neemstylerProfilPicture }}" style="width: 100%;" />
@@ -116,7 +118,7 @@
 
   </ion-content>
 
-  <div class="bar bar-footer bar-footer-neemstyler">
+  <div class="bar bar-footer bar-footer-neemstyler" data-ng-if="!chargPageNeem()">
     <button class="footer-button-neemstyler" data-ng-click="updateProfilNeemStylerN(updateProfilNeemStyler)">Confirmer</button>
   </div>
 </ion-view>
