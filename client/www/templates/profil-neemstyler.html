@@ -1,7 +1,9 @@
 <ion-view view-title="Neemaa">
   <ion-content class="content-profil-neemstyler">
     <div class="chargNeemStyler" data-ng-if="chargPageNeem()" style="background-color: #FFEEED; position: absolute; z-index: 99;min-width: 100%;min-height: 100%;">
-      test
+      <div class="row" layout-align="center center">
+        <img class="chargement" src="img/chargement.gif">
+      </div>
     </div>
     <div class="row">
       <div class="col col-33">
@@ -77,23 +79,29 @@
         <h5>Choisir les services que vous proposez et le prix correspondant à chacun :</h5>
       </div>
     </div>
-    <div class="row text-center" data-ng-repeat="service in servicesNeem">
-      <div class="col col-50">
+    <div class="row" data-ng-repeat="service in servicesNeem">
+      <div class="col col-40">
         <span class="item-content">{{ service.name }}</span>
       </div>
-      <div class="col col-33">
-        <span class="item-content">{{ service.price }}</span>
+      <div class="col col-20">
+        <span class="item-content">{{ service.price }} €</span>
+      </div>
+      <div class="col col-20">
+        <span class="item-content">1h</span>
       </div>
       <div class="col col-10">
         <i class="icon ion-close" style="color: red" data-ng-click="deleteService(service.id)"></i>
       </div>
     </div>
-    <div class="row text-center">
-      <div class="col col-50">
+    <div class="row">
+      <div class="col col-40">
         <input type="text" data-ng-model="serviceNeemStyler.service" class="profil-neem-form-text" placeholder="Service" />
       </div>
-      <div class="col col-33">
+      <div class="col col-20">
         <input type="text" data-ng-model="serviceNeemStyler.price" class="profil-neem-form-text" placeholder="Prix" />
+      </div>
+      <div class="col col-20">
+        <input type="text" data-ng-model="" class="profil-neem-form-text" placeholder="Temps" />
       </div>
       <div class="col col-10">
         <i class="icon ion-plus" data-ng-click="neemStylerAddService(serviceNeemStyler)"></i>
@@ -106,7 +114,7 @@
       </div>
     </div>
     <div class="row text-center" data-ng-if="picturePresenteNeem()">
-      <div class="col col-15" data-ng-repeat="image in updateProfilNeemStyler.image">
+      <div class="col col-20" data-ng-repeat="image in updateProfilNeemStyler.image">
         <img src="{{image}}" style="width: 100%" />
       </div>
     </div>

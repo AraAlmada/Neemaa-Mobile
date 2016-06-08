@@ -214,7 +214,7 @@ a {
   z-index: 99;
 }
 
-#chargement{
+.chargement{
   margin-left: auto;
   margin-right: auto;
   margin-top: 50%;
