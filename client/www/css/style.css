@@ -234,3 +234,21 @@ a {
 span{
   color: #FFEEED;
 }
+
+#fleche{
+  padding: 20px;
+  font-size: 40px;
+}
+
+.pad{
+  padding-bottom: 10px;
+}
+
+.size-list-neem{
+  font-size: 20px;
+}
+
+.bar-footer-list-neemstyler{
+  background-color: #b55370 !important;
+  height: 30% !important;
+}
