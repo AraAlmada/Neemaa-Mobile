@@ -1,7 +1,9 @@
 <ion-view view-title="Neemaa">
   <ion-content class="content-app">
-    <div id="chargAgenda" data-ng-if="chargAgenda()" style="background-color: blue;position: absolute;min-width: 100%;min-height: 100%;z-index: 99">
-      test
+    <div id="chargAgenda" data-ng-if="chargAgenda()">
+      <div class="row" layout-align="center center">
+        <img class="chargement" src="img/chargement.gif">
+      </div>
     </div>
     <div data-ng-if="agendaPageConfig()">
       <div class="row text-center">
@@ -242,6 +244,21 @@
         </ul>
       </div>
     </div>
+    <div class="row" id="rdv">
+      <div id="rdv-cont">
+        <span class="rdv-conte">Ajouter rendez-vous :</span>
+        <input class="rdv-conte" type="text" placeholder="Titre">
+        <input class="rdv-conte" type="date" placeholder="Date">
+        <span class="rdv-conte">De </span>
+        <input class="rdv-conte" type="time" placeholder="rdv-conte">
+        <span class="rdv-conte"> à </span>
+        <input class="rdv-conte" type="time" placeholder="time">
+        </div>
+      <div>
+        <button class="button-rdv">Valider</button>
+        <button class="button-rdv">Retour</button>
+      </div>
+      </div>
     <div data-ng-if="agendaPageWeek()">
       Week page
     </div>
@@ -250,6 +267,6 @@
   <div class="bar bar-footer">
     <button class="button-agenda" data-ng-click="agendaPageConfigSelected()" data-ng-if="!chargAgenda()">Rendez-vous</button>
     <button class="button-agenda" data-ng-click="agendaPageSelected()" data-ng-if="!chargAgenda()">Mon Agenda</button>
-    <button class="button-agenda" data-ng-click="agendaPageWeekSelected()" data-ng-if="!chargAgenda()">Ma Semaine</button>
+<!--    <button class="button-agenda" data-ng-click="agendaPageWeekSelected()" data-ng-if="!chargAgenda()">Ma Semaine</button>-->
   </div>
 </ion-view>
