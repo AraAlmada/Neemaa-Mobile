@@ -387,9 +387,9 @@ angular.module('starter.services', [])
   })
   .factory('GoogleAgendaService', function($http) {
     return {
-      getNfo: function (email, token) {
+      getNfo: function (email, token, id_neem) {
         return $http({
-          method: 'get',
+          method: 'post',
           url: 'http://localhost:8000/api/get/agenda-info',
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
@@ -400,7 +400,29 @@ angular.module('starter.services', [])
             for(var p in obj)
               str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
             return str.join("&");
-          }
+          },
+          data: {id_neem: id_neem}
+        });
+      }
+    }
+  })
+  .factory('ScheduleService', function($http) {
+    return {
+      setScheduleNeem: function (email, token, schedules) {
+        return $http({
+          method: 'post',
+          url: 'http://localhost:8000/api/services/schedules',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Authorization': `${email}token:${token}`
+          },
+          transformRequest: function(obj) {
+            var str = [];
+            for(var p in obj)
+              str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+            return str.join("&");
+          },
+          data: schedules
         });
       }
     }
