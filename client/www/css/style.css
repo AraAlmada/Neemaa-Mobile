@@ -290,3 +290,63 @@ label{
 .mar-login{
   margin-bottom: 10px !important;
 }
+
+.event-detail-container {
+  display: none;
+}
+.table-bordered, .table-bordered>tbody>tr>td, .table-bordered>thead>tr>th {
+  border: none !important;
+}
+
+.table-bordered>thead>tr>th{
+  border-bottom: 1px solid #FFEEED !important;
+}
+td{
+  color: white;
+  font-weight: bold !important;
+}
+
+th{
+  font-weight: bold !important;
+}
+
+.monthview-selected {
+  background-color: #FFB6C1 !important;
+  color: black !important;
+}
+
+.monthview-current {
+  background-color: #FFEEED !important;
+  color: black !important;
+}
+
+.button-agenda{
+  margin-right: auto;
+  margin-left: auto;
+  height: 10%;
+  background-color: #5C2542;
+  border: none;
+  border-radius: 10px;
+  padding-top: 2% !important;
+  padding-bottom: 12%!important;
+  font-size: 4vw !important;
+  font-weight: bold !important;
+  color: white !important;
+}
+
+#button-agenda-rdv{
+  float: right;
+  background-color: #5C2542;
+  border: none;
+  border-radius: 10px;
+  color: white;
+}
+
+.agenda-date{
+  font-size: 20px;
+}
+
+.info-agenda{
+  padding-left: 10px;
+  font-size: 15px;
+}
