@@ -601,6 +601,8 @@ angular.module('starter.controllers', [])
 })
 
 .controller('AgendaNeemStylerCtrl', function ($scope, $state, ionicToast, localStorageService, GoogleAgendaService) {
+  var agendaConfigPage = false, agendaPage = true, agendaPageWeek = false;
+
   setTimeout(function() {
     GoogleAgendaService.getNfo(localStorageService.get('email'), localStorageService.get('token'))
     .success(function(data) {
@@ -612,5 +614,35 @@ angular.module('starter.controllers', [])
 
   $scope.onTimeSelected = function (selectedTime) {
     console.log(selectedTime);
+  };
+
+  $scope.agendaPageConfig = function() {
+    return agendaConfigPage;
+  };
+
+  $scope.agendaPageConfigSelected = function() {
+    agendaConfigPage = true;
+    agendaPage = false;
+    agendaPageWeek = false;
+  };
+
+  $scope.agendaPage = function() {
+    return agendaPage;
+  };
+
+  $scope.agendaPageSelected = function() {
+    agendaConfigPage = false;
+    agendaPage = true;
+    agendaPageWeek = false;
+  };
+
+  $scope.agendaPageWeek = function() {
+    return agendaPageWeek;
+  };
+
+  $scope.agendaPageWeekSelected = function() {
+    agendaConfigPage = false;
+    agendaPage = false;
+    agendaPageWeek = true;
   };
 });

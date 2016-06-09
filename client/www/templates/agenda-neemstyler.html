@@ -1,21 +1,29 @@
 <ion-view view-title="Neemaa">
   <ion-content class="content-app">
-    <button id="button-agenda-rdv"><i class="ion-plus-round"></i> Ajouter rendez-vous</button>
-    <h4 class="white-text"><i class="ion-calendar"></i> Agenda</h4>
-    <calendar calendar-mode="mode" event-source="eventSource" time-selected="onTimeSelected(selectedTime)"></calendar>
-    <div class="row">
-      <ul>
-        <li class="agenda-date">Jeudi 4 semp 2000 :</li>
-        <li class="info-agenda">  M.dupont</li>
-        <li class="info-agenda">  Service</li>
-        <li class="info-agenda">  8h à 11h</li>
-      </ul>
+    <div data-ng-if="agendaPageConfig()">
+      Config Page
+    </div>
+    <div data-ng-if="agendaPage()">
+      <button id="button-agenda-rdv"><i class="ion-plus-round"></i> Ajouter rendez-vous</button>
+      <h4 class="white-text"><i class="ion-calendar"></i> Agenda</h4>
+      <calendar calendar-mode="mode" event-source="eventSource" time-selected="onTimeSelected(selectedTime)"></calendar>
+      <div class="row">
+        <ul>
+          <li class="agenda-date">Jeudi 4 semp 2000 :</li>
+          <li class="info-agenda">  M.dupont</li>
+          <li class="info-agenda">  Service</li>
+          <li class="info-agenda">  8h à 11h</li>
+        </ul>
+      </div>
+    </div>
+    <div data-ng-if="agendaPageWeek()">
+      Week page
     </div>
   </ion-content>
 
   <div class="bar bar-footer">
-    <button class="button-agenda" data-ng-click="loginUser(loginUser)">Rendez-vous</button>
-    <button class="button-agenda" data-ng-click="loginUser(loginUser)">Mon Agenda</button>
-    <button class="button-agenda" data-ng-click="loginUser(loginUser)">Ma Semaine</button>
+    <button class="button-agenda" data-ng-click="agendaPageConfigSelected()">Rendez-vous</button>
+    <button class="button-agenda" data-ng-click="agendaPageSelected()">Mon Agenda</button>
+    <button class="button-agenda" data-ng-click="agendaPageWeekSelected()">Ma Semaine</button>
   </div>
 </ion-view>
