@@ -403,6 +403,23 @@ angular.module('starter.services', [])
           },
           data: {id_neem: id_neem}
         });
+      },
+      addEvent: function(email, token, data) {
+        return $http({
+          method: 'post',
+          url: 'http://localhost:8000/api/set/add-event-agenda',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Authorization': `${email}token:${token}`
+          },
+          transformRequest: function(obj) {
+            var str = [];
+            for(var p in obj)
+              str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+            return str.join("&");
+          },
+          data: data
+        });
       }
     }
   })

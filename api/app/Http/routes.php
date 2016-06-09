@@ -62,7 +62,7 @@ Route::group(['prefix' => 'api', 'middleware' => 'neemstyler'], function () {
     Route::post('/upload-profil-picture-neemstyler', 'UserController@uploadProfilPictureNeemStyler');
     Route::post('/upload-profil-picture-neemstyler-presente', 'UserController@uploadProfilPictureNeemStylerPresente');
     Route::post('/get/agenda-info', 'GoogleAgendaController@getNfo');
-
+    Route::post('/add-event-agenda', 'GoogleAgendaController@addEvent');
 });
 
 Route::group(['prefix' => 'api', 'middleware' => 'admin'], function () {

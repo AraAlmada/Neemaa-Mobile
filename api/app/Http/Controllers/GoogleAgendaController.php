@@ -21,9 +21,20 @@ class GoogleAgendaController extends Controller
         ], 200);
     }
 
+    public function addEvent(Request $request) {
+        $calendar = new GoogleCalendar;
+        $event = $calendar->addEvent('EventTest', 1, 'coiffure', '2016-06-09', '11h', '12h', '8623tsjqcin9urn10730r997ks@group.calendar.google.com');
+
+        return response()->json([
+            'data' => $request->data,
+            'token' => $request->token,
+            'response' => $event
+        ], 200);
+    }
+
     public function test() {
         $calendar = new GoogleCalendar;
-        $event = $calendar->test();
+        $event = $calendar->getAllEvents('8623tsjqcin9urn10730r997ks@group.calendar.google.com');
         return response()->json(['data' => $event]);
     }
 }

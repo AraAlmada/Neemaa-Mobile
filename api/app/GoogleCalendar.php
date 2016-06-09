@@ -71,17 +71,16 @@ class GoogleCalendar {
         return $calendar;
     }
 
-    public function addEvent() {
+    public function addEvent($title, $id_client, $service, $date, $begin, $finish, $calendarId) {
         $event = new \Google_Service_Calendar_Event(array(
-          'summary' => 'Titre Event',
-          'location' => 'adress Event',
-          'description' => 'idclient<||>service<||>date<||>heureDebut<||>heurefin',
+          'summary' => $title,
+          'description' => $id_client.'<||>'.$service.'<||>'.$date.'<||>'.$begin.'<||>'.$finish,
           'start' => array(
-            'dateTime' => '2015-05-28T09:00:00-07:00',
+            'dateTime' => '2016-06-09T09:00:00-03:00',
             'timeZone' => 'Europe/Paris',
           ),
           'end' => array(
-            'dateTime' => '2015-05-28T17:00:00-09:00',
+            'dateTime' => '2016-06-09T17:00:00-09:00',
             'timeZone' => 'Europe/Paris',
           ),
           'status' => 'tentative',
@@ -101,14 +100,13 @@ class GoogleCalendar {
           ),
         ));
 
-        $calendarId = 'bdf58dgpaditrvqp1q9mfbt788@group.calendar.google.com';
         $event = $this->service->events->insert($calendarId, $event);
 
         return $event;
     }
 
-    public function getAllEvents() {
-        $events = $this->service->events->listEvents('bdf58dgpaditrvqp1q9mfbt788@group.calendar.google.com');
+    public function getAllEvents($calendarId) {
+        $events = $this->service->events->listEvents($calendarId);
         $eventsAll = [];
 
         while(true) {
@@ -118,7 +116,7 @@ class GoogleCalendar {
           $pageToken = $events->getNextPageToken();
           if ($pageToken) {
             $optParams = array('pageToken' => $pageToken);
-            $events = $this->service->events->listEvents('bdf58dgpaditrvqp1q9mfbt788@group.calendar.google.com', $optParams);
+            $events = $this->service->events->listEvents($calendarId, $optParams);
           } else {
             break;
           }
