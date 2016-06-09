@@ -12,7 +12,7 @@
         </div>
       </div>
       <div class="row">
-        <p>Configuration des horraires d'ouverture de l'entreprise</p>
+        <p id="white">Configuration des horraires d'ouverture de l'entreprise</p>
       </div>
       <div>
         <table>
@@ -232,7 +232,7 @@
       </div>
     </div>
     <div data-ng-if="agendaPage()">
-      <button id="button-agenda-rdv"><i class="ion-plus-round"></i> Ajouter rendez-vous</button>
+      <button id="button-agenda-rdv"><i class="ion-plus-round"></i></button>
       <h4 class="white-text"><i class="ion-calendar"></i> Agenda</h4>
       <calendar calendar-mode="mode" event-source="eventSource" time-selected="onTimeSelected(selectedTime)"></calendar>
       <div class="row">
@@ -244,7 +244,7 @@
         </ul>
       </div>
     </div>
-    <div class="row" id="rdv">
+    <div class="row" id="rdv" style="display: none">
       <div id="rdv-cont">
         <span class="rdv-conte">Ajouter rendez-vous :</span>
         <input class="rdv-conte" type="text" placeholder="Titre">
@@ -264,9 +264,9 @@
     </div>
   </ion-content>
 
-  <div class="bar bar-footer">
-    <button class="button-agenda" data-ng-click="agendaPageConfigSelected()" data-ng-if="!chargAgenda()">Rendez-vous</button>
-    <button class="button-agenda" data-ng-click="agendaPageSelected()" data-ng-if="!chargAgenda()">Mon Agenda</button>
+  <div class="bar bar-footer test">
+    <a id="book" class="button button-icon icon ion-ios-bookmarks customIconSound" data-ng-click="agendaPageConfigSelected()" data-ng-if="!chargAgenda()"></a>
+    <a id="calandar" class="button button-icon icon ion-calendar" data-ng-click="agendaPageSelected()" data-ng-if="!chargAgenda()"></a>
 <!--    <button class="button-agenda" data-ng-click="agendaPageWeekSelected()" data-ng-if="!chargAgenda()">Ma Semaine</button>-->
   </div>
 </ion-view>
