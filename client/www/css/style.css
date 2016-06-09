@@ -402,3 +402,43 @@ th{
   vertical-align: middle;
   margin-top: -5px;
 }
+
+#chargAgenda{
+  background-color: #b55370;
+  position: absolute;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: 99;
+}
+
+#rdv{
+  position: absolute;
+  z-index: 98;
+  background-color: #FFEEED;
+  border-radius: 10px ;
+}
+
+.rdv-conte{
+  margin-left: 20px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  color: black;
+}
+
+#rdv-cont{
+  width: 100%;
+  display: inline-block;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.button-rdv{
+  background-color: #5C2542;
+  border: none;
+  border-radius: 10px;
+  padding-top: 5% !important;
+  font-size: 5vw !important;
+  font-weight: bold !important;
+  color: white !important;
+  margin-top: 30px;
+}
