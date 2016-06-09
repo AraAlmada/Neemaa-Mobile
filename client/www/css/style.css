@@ -237,6 +237,15 @@ a {
     width: 55px !important;
     height: 55px !important;
   }
+
+  .date{
+    padding-top: 7% !important;
+    font-size: 15px !important;
+  }
+
+  #button-ouve {
+    padding-top: 2% !important;
+  }
 }
 
 span{
@@ -349,4 +358,42 @@ th{
 .info-agenda{
   padding-left: 10px;
   font-size: 15px;
+}
+
+.time-agenda{
+  padding-left: 20px;
+}
+
+.date{
+  font-size: 20px;
+  padding-top: 10%;
+}
+
+.day-agenda{
+  padding-top: 2%;
+}
+
+.check-date{
+  background-color: #b55370 !important;
+  border: none !important;
+}
+
+.checkbox .checkbox-icon:before, .checkbox input:before {
+  border: none !important;
+}
+
+.button-ouverture{
+  margin-left: 39%;
+  height: 10%;
+  background-color: #5C2542;
+  border: none;
+  border-radius: 10px;
+  padding-top: 2% !important;
+  padding-bottom: 2%!important;
+  font-weight: bold !important;
+  color: white !important;
+}
+
+#button-ouve{
+  padding-top: 5%;
 }
