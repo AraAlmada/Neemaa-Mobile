@@ -1,5 +1,8 @@
 <ion-view view-title="Neemaa">
   <ion-content class="content-app">
+    <div id="chargAgenda" data-ng-if="chargAgenda()" style="background-color: blue;position: absolute;min-width: 100%;min-height: 100%;z-index: 99">
+      test
+    </div>
     <div data-ng-if="agendaPageConfig()">
       <div class="row text-center">
         <div class="col">
@@ -20,7 +23,8 @@
           <tr class="day-agenda">
             <td class="date">Lundi</td>
             <td  class="time-agenda">
-              <select>
+              <select data-ng-model="schedulesNeemStyler.monday.morning">
+                <option value="" disabled selected>Matin</option>
                 <option>07h</option>
                 <option>08h</option>
                 <option>09h</option>
@@ -29,7 +33,8 @@
                 <option>12h</option>
               </select></td>
             <td class="time-agenda">
-              <select>
+              <select data-ng-model="schedulesNeemStyler.monday.afternoon">
+                <option value="" disabled selected>Apres midi</option>
                 <option>13h</option>
                 <option>14h</option>
                 <option>15h</option>
@@ -47,7 +52,8 @@
           <tr class="day-agenda">
             <td class="date">Mardi</td>
             <td  class="time-agenda">
-              <select>
+              <select data-ng-model="schedulesNeemStyler.tuesday.morning">
+                <option value="" disabled selected>Matin</option>
                 <option>07h</option>
                 <option>08h</option>
                 <option>09h</option>
@@ -56,7 +62,8 @@
                 <option>12h</option>
               </select></td>
             <td class="time-agenda">
-              <select>
+              <select data-ng-model="schedulesNeemStyler.tuesday.afternoon">
+                <option value="" disabled selected>Apres midi</option>
                 <option>13h</option>
                 <option>14h</option>
                 <option>15h</option>
@@ -74,7 +81,8 @@
           <tr class="day-agenda">
             <td class="date">Mercredi</td>
             <td  class="time-agenda">
-              <select>
+              <select data-ng-model="schedulesNeemStyler.wednesday.morning">
+                <option value="" disabled selected>Matin</option>
                 <option>07h</option>
                 <option>08h</option>
                 <option>09h</option>
@@ -83,7 +91,8 @@
                 <option>12h</option>
               </select></td>
             <td class="time-agenda">
-              <select>
+              <select data-ng-model="schedulesNeemStyler.wednesday.afternoon">
+                <option value="" disabled selected>Apres midi</option>
                 <option>13h</option>
                 <option>14h</option>
                 <option>15h</option>
@@ -101,7 +110,8 @@
           <tr class="day-agenda">
             <td class="date">Jeudi</td>
             <td  class="time-agenda">
-              <select>
+              <select data-ng-model="schedulesNeemStyler.thursday.morning">
+                <option value="" disabled selected>Matin</option>
                 <option>07h</option>
                 <option>08h</option>
                 <option>09h</option>
@@ -110,7 +120,8 @@
                 <option>12h</option>
               </select></td>
             <td class="time-agenda">
-              <select>
+              <select data-ng-model="schedulesNeemStyler.thursday.afternoon">
+                <option value="" disabled selected>Apres midi</option>
                 <option>13h</option>
                 <option>14h</option>
                 <option>15h</option>
@@ -128,7 +139,8 @@
           <tr class="day-agenda">
             <td class="date">Vendredi</td>
             <td  class="time-agenda">
-              <select>
+              <select data-ng-model="schedulesNeemStyler.friday.morning">
+                <option value="" disabled selected>Matin</option>
                 <option>07h</option>
                 <option>08h</option>
                 <option>09h</option>
@@ -137,7 +149,8 @@
                 <option>12h</option>
               </select></td>
             <td class="time-agenda">
-              <select>
+              <select data-ng-model="schedulesNeemStyler.friday.afternoon">
+                <option value="" disabled selected>Apres midi</option>
                 <option>13h</option>
                 <option>14h</option>
                 <option>15h</option>
@@ -155,7 +168,8 @@
           <tr class="day-agenda">
             <td class="date">Samedi</td>
             <td  class="time-agenda">
-              <select>
+              <select data-ng-model="schedulesNeemStyler.saturday.morning">
+                <option value="" disabled selected>Matin</option>
                 <option>07h</option>
                 <option>08h</option>
                 <option>09h</option>
@@ -164,7 +178,8 @@
                 <option>12h</option>
               </select></td>
             <td class="time-agenda">
-              <select>
+              <select data-ng-model="schedulesNeemStyler.saturday.afternoon">
+                <option value="" disabled selected>Apres midi</option>
                 <option>13h</option>
                 <option>14h</option>
                 <option>15h</option>
@@ -182,7 +197,8 @@
           <tr class="day-agenda">
             <td class="date">Dimanche</td>
             <td  class="time-agenda">
-              <select>
+              <select data-ng-model="schedulesNeemStyler.sunday.morning">
+                <option value="" disabled selected>Matin</option>
                 <option>07h</option>
                 <option>08h</option>
                 <option>09h</option>
@@ -191,7 +207,8 @@
                 <option>12h</option>
               </select></td>
             <td class="time-agenda">
-              <select>
+              <select data-ng-model="schedulesNeemStyler.sunday.afternoon">
+                <option value="" disabled selected>Apres midi</option>
                 <option>13h</option>
                 <option>14h</option>
                 <option>15h</option>
@@ -209,7 +226,7 @@
         </table>
       </div>
       <div id="button-ouve">
-        <button class="button-ouverture">Validation</button>
+        <button class="button-ouverture" data-ng-click="schedulesNeemStylerSave(schedulesNeemStyler)">Validation</button>
       </div>
     </div>
     <div data-ng-if="agendaPage()">
@@ -231,8 +248,8 @@
   </ion-content>
 
   <div class="bar bar-footer">
-    <button class="button-agenda" data-ng-click="agendaPageConfigSelected()">Rendez-vous</button>
-    <button class="button-agenda" data-ng-click="agendaPageSelected()">Mon Agenda</button>
-    <button class="button-agenda" data-ng-click="agendaPageWeekSelected()">Ma Semaine</button>
+    <button class="button-agenda" data-ng-click="agendaPageConfigSelected()" data-ng-if="!chargAgenda()">Rendez-vous</button>
+    <button class="button-agenda" data-ng-click="agendaPageSelected()" data-ng-if="!chargAgenda()">Mon Agenda</button>
+    <button class="button-agenda" data-ng-click="agendaPageWeekSelected()" data-ng-if="!chargAgenda()">Ma Semaine</button>
   </div>
 </ion-view>
