@@ -397,3 +397,8 @@ th{
 #button-ouve{
   padding-top: 5%;
 }
+
+#button-register{
+  vertical-align: middle;
+  margin-top: -5px;
+}
