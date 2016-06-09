@@ -56,9 +56,10 @@ angular.module('starter.controllers', [])
 })
 
 .controller('RegisterCtrl', function($scope, $state, ionicToast, RegisterService) {
-  var ifSociety = false, registerNeemStyler = false, registerButton = true;
+  var ifSociety = false, registerNeemStyler = false, registerButton = true, chargRegister = false;
 
   $scope.registerUser = function (user) {
+    chargRegister = true;
     if (registerButton) {
       registerButton = false;
       if (!/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i.test(user.email)) {
@@ -81,26 +82,34 @@ angular.module('starter.controllers', [])
             delete user.society;
             ionicToast.show('Un email vous à été envoyé', 'top', false, 2500);
             registerButton = true;
+            chargRegister = false;
             $state.go('app.login');
           })
           .error(function (err) {
             ionicToast.show('Une erreur inconnue d\'est produite', 'top', false, 2500);
             registerButton = true;
+            chargRegister = false;
           });
       } else {
         RegisterService.register(user)
           .success(function () {
             ionicToast.show('Un email vous à été envoyé', 'top', false, 2500);
             registerButton = true;
+            chargRegister = false;
             $state.go('app.login');
         })
           .error(function (err) {
             ionicToast.show('Une erreur inconnue d\'est produite', 'top', false, 2500);
             registerButton = true;
+            chargRegister = false;
           });
       }
     }
   };
+
+  $scope.chargRegister = function functionName() {
+    return chargRegister;
+  }
 
   $scope.neemStyler = function () {
     if (ifSociety) {
