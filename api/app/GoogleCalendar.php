@@ -47,10 +47,10 @@ class GoogleCalendar {
         dd($results);
     }
 
-    public function createCalendarNeem($Summary, $timezone) {
+    public function createCalendarNeem($Summary) {
         $calendar = new \Google_Service_Calendar_Calendar();
-        $calendar->setSummary('calendarSummary');
-        $calendar->setTimeZone('America/Los_Angeles');
+        $calendar->setSummary($Summary);
+        $calendar->setTimeZone('Europe/Paris');
 
         $createdCalendar = $this->service->calendars->insert($calendar);
 
@@ -64,5 +64,72 @@ class GoogleCalendar {
     public function getAllCalendarNeem() {
         $calendarList  = $this->service->calendarList->listCalendarList();
         return $calendarList;
+    }
+
+    public function getCalendarNeem($calendarId) {
+        $calendar = $this->service->calendars->get($calendarId);
+        return $calendar;
+    }
+
+    public function addEvent() {
+        $event = new \Google_Service_Calendar_Event(array(
+          'summary' => 'Titre Event',
+          'location' => 'adress Event',
+          'description' => 'idclient<||>service<||>date<||>heureDebut<||>heurefin',
+          'start' => array(
+            'dateTime' => '2015-05-28T09:00:00-07:00',
+            'timeZone' => 'Europe/Paris',
+          ),
+          'end' => array(
+            'dateTime' => '2015-05-28T17:00:00-09:00',
+            'timeZone' => 'Europe/Paris',
+          ),
+          'status' => 'tentative',
+        //   'recurrence' => array(
+        //     'RRULE:FREQ=DAILY;COUNT=2'
+        //   ),
+        //   'attendees' => array(
+        //     array('email' => 'lpage@example.com'),
+        //     array('email' => 'sbrin@example.com'),
+        //   ),
+          'reminders' => array(
+            'useDefault' => FALSE,
+            'overrides' => array(
+              array('method' => 'email', 'minutes' => 24 * 60),
+              array('method' => 'popup', 'minutes' => 10),
+            ),
+          ),
+        ));
+
+        $calendarId = 'bdf58dgpaditrvqp1q9mfbt788@group.calendar.google.com';
+        $event = $this->service->events->insert($calendarId, $event);
+
+        return $event;
+    }
+
+    public function getAllEvents() {
+        $events = $this->service->events->listEvents('bdf58dgpaditrvqp1q9mfbt788@group.calendar.google.com');
+        $eventsAll = [];
+
+        while(true) {
+          foreach ($events->getItems() as $event) {
+            $eventsAll[] = $event;
+          }
+          $pageToken = $events->getNextPageToken();
+          if ($pageToken) {
+            $optParams = array('pageToken' => $pageToken);
+            $events = $this->service->events->listEvents('bdf58dgpaditrvqp1q9mfbt788@group.calendar.google.com', $optParams);
+          } else {
+            break;
+          }
+        }
+
+        return $eventsAll;
+    }
+
+    public function test() {
+        $event = $this->service->events->get('bdf58dgpaditrvqp1q9mfbt788@group.calendar.google.com', "ddac1r2n6rq30qj4q76j40o6i0");
+
+        return $event;
     }
 }

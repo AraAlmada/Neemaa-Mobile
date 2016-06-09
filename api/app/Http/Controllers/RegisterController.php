@@ -9,6 +9,7 @@ use Validator;
 use DB;
 use Mail;
 use Storage;
+use App\GoogleCalendar;
 
 class RegisterController extends Controller
 {
@@ -39,15 +40,21 @@ class RegisterController extends Controller
 
         if (isset($request->society)) {
             $society = $request->society;
+            $calendar = new GoogleCalendar;
+            $id_calendar = $calendar->createCalendarNeem($request->email, 'UTC');
             try {
                 DB::table('neemstylers')->insert([
                     'password' => bcrypt($request->password),
+                    'id_calendar' => $id_calendar->getId(),
                     'email' => $request->email,
                     'society' => $society,
                     'token_activator' => $token,
                     'created_at' => date('Y-m-d H:i:s')
                 ]);
                 $disk = file_get_contents(base_path() . '/public/img/profil.jpg');
+                if (!file_exists(base_path() . '/public/img/neemstyler/' . $request->email)) {
+                    mkdir(base_path() . '/public/img/neemstyler/' . $request->email, 0777, true);
+                }
                 file_put_contents(base_path() . '/public/img/neemstyler/' . $request->email . '/profil.jpg', $disk, LOCK_EX);
             }catch(Exception $e){
                 return response()->json(['error' => $e], 401);
@@ -61,6 +68,9 @@ class RegisterController extends Controller
                     'created_at' => date('Y-m-d H:i:s')
                 ]);
                 $disk = file_get_contents(base_path() . '/public/img/profil.jpg');
+                if (!file_exists(base_path() . '/public/img/client/' . $request->email)) {
+                    mkdir(base_path() . '/public/img/client/' . $request->email, 0777, true);
+                }
                 file_put_contents(base_path() . '/public/img/client/' . $request->email . '/profil.jpg', $disk, LOCK_EX);
             }catch(Exception $e){
                 return response()->json(['error' => $e], 401);

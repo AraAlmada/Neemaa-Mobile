@@ -56,42 +56,49 @@ angular.module('starter.controllers', [])
 })
 
 .controller('RegisterCtrl', function($scope, $state, ionicToast, RegisterService) {
-  var ifSociety = false, registerNeemStyler = false;
+  var ifSociety = false, registerNeemStyler = false, registerButton = true;
 
   $scope.registerUser = function (user) {
-    if (!/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i.test(user.email)) {
-      ionicToast.show('Votre email semble incorrect', 'top', false, 2500);
-      delete user.email;
-    } else if(!user.password) {
-      ionicToast.show('Renseignez votre mot de passe S.V.P', 'top', false, 2500);
-    } else if(!user.password) {
-      ionicToast.show('Confirmer votre mot de passe S.V.P', 'top', false, 2500);
-    } else if(user.password.length <= 5 || user.password.length >= 20) {
-      ionicToast.show('Votre mot de passe doit être compris entre 6 et 20 caracthere', 'top', false, 2500);
-    } else if (user.password != user.password_confirmation) {
-      ionicToast.show('Les mot de passes ne correspondent pas', 'top', false, 2500);
-    } else if (ifSociety) {
-      if (!user.society) {
-        ionicToast.show('Renseignez votre société S.V.P', 'top', false, 2500);
-      }
-      RegisterService.register(user)
-        .success(function () {
-          delete user.society;
-          ionicToast.show('Un email vous à été envoyé', 'top', false, 2500);
-          $state.go('app.login');
+    if (registerButton) {
+      registerButton = false;
+      if (!/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i.test(user.email)) {
+        ionicToast.show('Votre email semble incorrect', 'top', false, 2500);
+        delete user.email;
+      } else if(!user.password) {
+        ionicToast.show('Renseignez votre mot de passe S.V.P', 'top', false, 2500);
+      } else if(!user.password) {
+        ionicToast.show('Confirmer votre mot de passe S.V.P', 'top', false, 2500);
+      } else if(user.password.length <= 5 || user.password.length >= 20) {
+        ionicToast.show('Votre mot de passe doit être compris entre 6 et 20 caracthere', 'top', false, 2500);
+      } else if (user.password != user.password_confirmation) {
+        ionicToast.show('Les mot de passes ne correspondent pas', 'top', false, 2500);
+      } else if (ifSociety) {
+        if (!user.society) {
+          ionicToast.show('Renseignez votre société S.V.P', 'top', false, 2500);
+        }
+        RegisterService.register(user)
+          .success(function () {
+            delete user.society;
+            ionicToast.show('Un email vous à été envoyé', 'top', false, 2500);
+            registerButton = true;
+            $state.go('app.login');
+          })
+          .error(function (err) {
+            ionicToast.show('Une erreur inconnue d\'est produite', 'top', false, 2500);
+            registerButton = true;
+          });
+      } else {
+        RegisterService.register(user)
+          .success(function () {
+            ionicToast.show('Un email vous à été envoyé', 'top', false, 2500);
+            registerButton = true;
+            $state.go('app.login');
         })
-        .error(function (err) {
-          ionicToast.show('Une erreur inconnue d\'est produite', 'top', false, 2500);
-        });
-    } else {
-      RegisterService.register(user)
-        .success(function () {
-          ionicToast.show('Un email vous à été envoyé', 'top', false, 2500);
-          $state.go('app.login');
-      })
-        .error(function (err) {
-          ionicToast.show('Une erreur inconnue d\'est produite', 'top', false, 2500);
-        });
+          .error(function (err) {
+            ionicToast.show('Une erreur inconnue d\'est produite', 'top', false, 2500);
+            registerButton = true;
+          });
+      }
     }
   };
 
@@ -600,11 +607,11 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('AgendaNeemStylerCtrl', function ($scope, $state, ionicToast, localStorageService, GoogleAgendaService) {
+.controller('AgendaNeemStylerCtrl', function ($scope, $state, ionicToast, localStorageService, GoogleAgendaService, ScheduleService) {
   var agendaConfigPage = false, agendaPage = true, agendaPageWeek = false;
 
   setTimeout(function() {
-    GoogleAgendaService.getNfo(localStorageService.get('email'), localStorageService.get('token'))
+    GoogleAgendaService.getNfo(localStorageService.get('email'), localStorageService.get('token'), localStorageService.get('id_neem'))
     .success(function(data) {
       localStorageService.set('token', data.token);
       localStorageService.set('auth', true);
@@ -644,5 +651,9 @@ angular.module('starter.controllers', [])
     agendaConfigPage = false;
     agendaPage = false;
     agendaPageWeek = true;
+  };
+
+  $scope.agendaPageConfigsaveSchedules = function(schedules) {
+    console.log(schedules);
   };
 });

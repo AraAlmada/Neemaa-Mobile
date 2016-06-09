@@ -4,32 +4,26 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\GoogleCalendar;
+use DB;
 use App\Http\Requests;
 
 class GoogleAgendaController extends Controller
 {
     public function getNfo(Request $request) {
+        $id = DB::table('neemstylers')->where('id', $request->id_neem)->get();
         $calendar = new GoogleCalendar;
-        //$calendar->createCalendarNeem('test', 'UTC');
-        $result = $calendar->getAllCalendarNeem();
-        $res = [];
-        while(true) {
-          foreach ($result->getItems() as $calendarListEntry) {
-            $res[] = $calendarListEntry->getId().'<br>';
-          }
-          $pageToken = $result->getNextPageToken();
-          if ($pageToken) {
-            $optParams = array('pageToken' => $pageToken);
-            $result = $service->calendarList->listCalendarList($optParams);
-          } else {
-            break;
-          }
-        }
+        $calendarNeem = $calendar->getCalendarNeem($id[0]->id_calendar);
 
         return response()->json([
             'data' => $request->data,
             'token' => $request->token,
-            'response' => $res
+            'response' => $calendarNeem
         ], 200);
+    }
+
+    public function test() {
+        $calendar = new GoogleCalendar;
+        $event = $calendar->test();
+        return response()->json(['data' => $event]);
     }
 }

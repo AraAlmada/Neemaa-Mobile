@@ -14,6 +14,7 @@ class CreateNeemstylersTable extends Migration
     {
         Schema::create('neemstylers', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('id_calendar');
             $table->string('firstname', 45);
             $table->string('lastname', 45);
             $table->string('email')->unique();
