@@ -246,6 +246,10 @@ a {
   #button-ouve {
     padding-top: 2% !important;
   }
+
+  .icons-admin {
+    margin-top: -3% !important;
+  }
 }
 
 span{
@@ -446,6 +450,11 @@ th{
   color: white;
 }
 
-.test{
-
+.icons-admin{
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-top: 1.5% !important;
+  padding-bottom: 12%!important;
+  color: white !important;
+  font-size: 0.8em !important;
 }
