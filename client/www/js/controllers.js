@@ -50,8 +50,51 @@ angular.module('starter.controllers', [])
 })
 
 .controller('AdminCtrl', function($scope, $state, $ionicSideMenuDelegate, localStorageService) {
+  $scope.adminNeemStylerPage = true;
+  $scope.adminPaymentPage = false;
+  $scope.adminServicePage = false;
+  $scope.adminCalendarPage = false;
+  $scope.adminNoticePage = false;
 
-    console.log('admin');
+  $scope.AdminPageNeemStylerClick = function () {
+    $scope.adminNeemStylerPage = true;
+    $scope.adminPaymentPage = false;
+    $scope.adminServicePage = false;
+    $scope.adminCalendarPage = false;
+    $scope.adminNoticePage = false;
+  };
+
+  $scope.AdminPagePaymentClick = function () {
+    $scope.adminNeemStylerPage = false;
+    $scope.adminPaymentPage = true;
+    $scope.adminServicePage = false;
+    $scope.adminCalendarPage = false;
+    $scope.adminNoticePage = false;
+  };
+
+  $scope.AdminPageServiceClick = function () {
+    $scope.adminNeemStylerPage = false;
+    $scope.adminPaymentPage = false;
+    $scope.adminServicePage = true;
+    $scope.adminCalendarPage = false;
+    $scope.adminNoticePage = false;
+  };
+
+  $scope.AdminPageCalendarClick = function () {
+    $scope.adminNeemStylerPage = false;
+    $scope.adminPaymentPage = false;
+    $scope.adminServicePage = false;
+    $scope.adminCalendarPage = true;
+    $scope.adminNoticePage = false;
+  };
+
+  $scope.AdminPageNoticeClick = function () {
+    $scope.adminNeemStylerPage = false;
+    $scope.adminPaymentPage = false;
+    $scope.adminServicePage = false;
+    $scope.adminCalendarPage = false;
+    $scope.adminNoticePage = true;
+  };
 
 })
 
@@ -561,7 +604,7 @@ angular.module('starter.controllers', [])
         }, 1000);
         picturePresente = true;
       });
-  }
+  };
 })
 
 .controller('ListCtrl', function ($scope, $state, SearchService, localStorageService, ionicToast) {

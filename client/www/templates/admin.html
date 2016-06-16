@@ -1,14 +1,28 @@
 <ion-view view-title="Neemaa">
   <ion-content class="content-app">
-    <h4 class="white-text">Admin</h4>
+    <div id="admin-neemstyler-page" data-ng-if="adminNeemStylerPage">
+      Page Neem
+    </div>
+    <div id="admin-payment-page" data-ng-if="adminPaymentPage">
+      Page Payment
+    </div>
+    <div id="admin-service-page" data-ng-if="adminServicePage">
+      Page Service
+    </div>
+    <div id="admin-calendar-page" data-ng-if="adminCalendarPage">
+      Page calendar
+    </div>
+    <div id="admin-notice-page" data-ng-if="adminNoticePage">
+      Page avis
+    </div>
 
   </ion-content>
 
   <div class="bar bar-footer">
-    <a class="button button-icon ion-person-stalker icons-admin" >NeemStyler</a>
-    <a class="button button-icon ion-card icons-admin" >Payment</a>
-    <a class="button button-icon ion-arrow-shrink icons-admin" >Service</a>
-    <a class="button button-icon ion-calendar icons-admin" >Calendrier</a>
-    <a class="button button-icon ion-ios-star icons-admin" >Avis</a><span></span>
+    <a class="button button-icon ion-person-stalker icons-admin" data-ng-click="AdminPageNeemStylerClick()">NeemStyler</a>
+    <a class="button button-icon ion-card icons-admin" data-ng-click="AdminPagePaymentClick()">Payment</a>
+    <a class="button button-icon ion-arrow-shrink icons-admin" data-ng-click="AdminPageServiceClick()">Service</a>
+    <a class="button button-icon ion-calendar icons-admin" data-ng-click="AdminPageCalendarClick()">Calendrier</a>
+    <a class="button button-icon ion-ios-star icons-admin" data-ng-click="AdminPageNoticeClick()">Avis</a><span></span>
   </div>
 </ion-view>
