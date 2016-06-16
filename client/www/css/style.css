@@ -246,6 +246,10 @@ a {
   #button-ouve {
     padding-top: 2% !important;
   }
+
+  .icons-admin {
+    margin-top: -3% !important;
+  }
 }
 
 span{
@@ -327,20 +331,6 @@ th{
 .monthview-current {
   background-color: #FFEEED !important;
   color: black !important;
-}
-
-.button-agenda{
-  margin-right: auto;
-  margin-left: auto;
-  height: 10%;
-  background-color: #5C2542;
-  border: none;
-  border-radius: 10px;
-  padding-top: 2% !important;
-  padding-bottom: 12%!important;
-  font-size: 4vw !important;
-  font-weight: bold !important;
-  color: white !important;
 }
 
 #button-agenda-rdv{
@@ -441,4 +431,30 @@ th{
   font-weight: bold !important;
   color: white !important;
   margin-top: 30px;
+}
+#calandar{
+  padding-right: 25% !important;
+  padding-top: 2% !important;
+  padding-bottom: 12%!important;
+  color: white !important;
+}
+
+#book{
+  padding-left: 25% !important;
+  padding-top: 2% !important;
+  padding-bottom: 12%!important;
+  color: white !important;
+}
+
+#white{
+  color: white;
+}
+
+.icons-admin{
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-top: 1.5% !important;
+  padding-bottom: 12%!important;
+  color: white !important;
+  font-size: 0.8em !important;
 }
