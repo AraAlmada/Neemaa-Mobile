@@ -250,6 +250,13 @@ a {
   .icons-admin {
     margin-top: -3% !important;
   }
+  .td {
+    padding-left: 10px !important;
+    font-size: 17px !important;
+  }
+  .padtd {
+    padding-left: 19% !important;
+  }
 }
 
 span{
@@ -457,4 +464,36 @@ th{
   padding-bottom: 12%!important;
   color: white !important;
   font-size: 0.8em !important;
+}
+
+.titre{
+  padding-bottom: 20px;
+}
+
+#titretd{
+  padding-bottom: 15px;
+}
+
+.td{
+  padding-left: 15px;
+  font-size: 18px;
+  padding-top: 20px;
+}
+
+.padtd{
+  padding-left: 20%;
+}
+
+.td-service{
+  padding-left: 14px;
+  padding-top: 20px;
+  font-size: 3vw;
+}
+
+.active{
+  background-color: green;
+}
+
+.desactiver{
+  background-color: red;
 }
