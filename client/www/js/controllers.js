@@ -660,7 +660,7 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('AgendaNeemStylerCtrl', function ($scope, $state, ionicToast, localStorageService, GoogleAgendaService, ScheduleService) {
+.controller('AgendaNeemStylerCtrl', function ($scope, $state, ionicToast, localStorageService, GoogleAgendaService, ScheduleService, ServiceNeemStylerService) {
   var agendaConfigPage = false, agendaPage = true, agendaPageWeek = false, chargAgenda = true;
   $scope.addEventModal = false;
   setTimeout(function() {
@@ -740,5 +740,15 @@ angular.module('starter.controllers', [])
 
   $scope.agendaPageAddEventConfirm = function (event) {
     console.log(event);
+    // ServiceNeemStylerService.getServiceNeem(localStorageService.get('email'), localStorageService.get('token'), localStorageService.get('id_neem'))
+    // .success(function(data) {
+    //   console.log(data);
+    //   localStorageService.set('token', data.token);
+    //   localStorageService.set('auth', true);
+    //
+    // })
+    // .error(function(err) {
+    //   console.log(err);
+    // });
   };
 });
