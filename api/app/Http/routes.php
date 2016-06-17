@@ -29,7 +29,7 @@ Route::group(['prefix' => 'api'], function () {
     Route::post('/recovery_password', 'LoginController@recoveryPassword');
     Route::get('/confirm/{token}', 'RegisterController@confirm');
     Route::get('/resend/{email}', 'LoginController@resendMail');
-    Route::get('test', 'GoogleAgendaController@test');
+    //Route::get('test', 'GoogleAgendaController@test');
     //TODO
     Route::post('services/schedules', 'ScheduleController@setSchedule');
 });
@@ -63,6 +63,7 @@ Route::group(['prefix' => 'api', 'middleware' => 'neemstyler'], function () {
     Route::post('/upload-profil-picture-neemstyler-presente', 'UserController@uploadProfilPictureNeemStylerPresente');
     Route::post('/get/agenda-info', 'GoogleAgendaController@getNfo');
     Route::post('/add-event-agenda', 'GoogleAgendaController@addEvent');
+    Route::post('/get-events-neem', 'GoogleAgendaController@getEventsNeem');
 });
 
 Route::group(['prefix' => 'api', 'middleware' => 'admin'], function () {

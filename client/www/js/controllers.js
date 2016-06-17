@@ -1,3 +1,4 @@
+
 angular.module('starter.controllers', [])
 
 .controller('AppCtrl', function($scope, $state, $ionicSideMenuDelegate, localStorageService) {
@@ -16,7 +17,7 @@ angular.module('starter.controllers', [])
   };
 
   $scope.ifAuth = function () {
-    if (localStorageService.get('auth') && localStorageService.get('auth') == true) {
+    if (localStorageService.get('auth') && localStorageService.get('auth') === true) {
       return false;
     } else {
       return true;
@@ -24,7 +25,7 @@ angular.module('starter.controllers', [])
   };
 
   $scope.ifNeemStyler = function () {
-    if (localStorageService.get('auth') && localStorageService.get('auth') == true && localStorageService.get('role') == 'neemstyler' ) {
+    if (localStorageService.get('auth') && localStorageService.get('auth') === true && localStorageService.get('role') == 'neemstyler' ) {
       return true;
     } else {
       return false;
@@ -32,7 +33,7 @@ angular.module('starter.controllers', [])
   };
 
   $scope.ifUser = function () {
-    if (localStorageService.get('auth') && localStorageService.get('auth') == true && localStorageService.get('role') == 'user' ) {
+    if (localStorageService.get('auth') && localStorageService.get('auth') === true && localStorageService.get('role') == 'user' ) {
       return true;
     } else {
       return false;
@@ -40,12 +41,12 @@ angular.module('starter.controllers', [])
   };
 
   $scope.ifAdmin = function () {
-    if (localStorageService.get('auth') && localStorageService.get('auth') == true && localStorageService.get('role') == 'admin' ) {
+    if (localStorageService.get('auth') && localStorageService.get('auth') === true && localStorageService.get('role') == 'admin' ) {
       return true;
     } else {
       return false;
     }
-  }
+  };
 
 })
 
@@ -661,14 +662,25 @@ angular.module('starter.controllers', [])
 
 .controller('AgendaNeemStylerCtrl', function ($scope, $state, ionicToast, localStorageService, GoogleAgendaService, ScheduleService) {
   var agendaConfigPage = false, agendaPage = true, agendaPageWeek = false, chargAgenda = true;
-
+  $scope.addEventModal = false;
   setTimeout(function() {
     GoogleAgendaService.getNfo(localStorageService.get('email'), localStorageService.get('token'), localStorageService.get('id_neem'))
     .success(function(data) {
-      chargAgenda = false;
+      setTimeout(function() {
+        GoogleAgendaService.getEventsNeem(localStorageService.get('email'), localStorageService.get('token'), localStorageService.get('id_neem'))
+        .success(function(data) {
+          console.log(data);
+          localStorageService.set('token', data.token);
+          localStorageService.set('auth', true);
+          chargAgenda = false;
+        });
+      }, 1000);
       localStorageService.set('token', data.token);
       localStorageService.set('auth', true);
       console.log(data.response);
+    })
+    .error(function() {
+      chargAgenda = false;
     });
   }, 2000);
 
@@ -716,5 +728,17 @@ angular.module('starter.controllers', [])
 
   $scope.schedulesNeemStylerSave = function(schedulesNeemStyler) {
     console.log(schedulesNeemStyler);
+  };
+
+  $scope.agendaPlusAddEventNeem = function() {
+    $scope.addEventModal = true;
+  };
+
+  $scope.agendaReturnAddEventNeem = function() {
+    $scope.addEventModal = false;
+  };
+
+  $scope.agendaPageAddEventConfirm = function (event) {
+    console.log(event);
   };
 });

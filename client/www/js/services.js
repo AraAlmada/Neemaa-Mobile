@@ -420,7 +420,25 @@ angular.module('starter.services', [])
           },
           data: data
         });
-      }
+      },
+
+      getEventsNeem: function(email, token, id) {
+        return $http({
+          method: 'post',
+          url: 'http://localhost:8000/api/get-events-neem',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Authorization': `${email}token:${token}`
+          },
+          transformRequest: function(obj) {
+            var str = [];
+            for(var p in obj)
+              str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+            return str.join("&");
+          },
+          data: {id_neem: id}
+        });
+      },
     }
   })
   .factory('ScheduleService', function($http) {

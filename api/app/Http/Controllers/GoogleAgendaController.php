@@ -32,9 +32,15 @@ class GoogleAgendaController extends Controller
         ], 200);
     }
 
-    public function test() {
+    public function getEventsNeem(Request $request) {
+        $id = DB::table('neemstylers')->where('id', $request->id_neem)->get();
+        $id = $id[0]->id_calendar;
         $calendar = new GoogleCalendar;
-        $event = $calendar->getAllEvents('8623tsjqcin9urn10730r997ks@group.calendar.google.com');
-        return response()->json(['data' => $event]);
+        $event = $calendar->getAllEvents($id);
+        return response()->json([
+            'data' => $request->data,
+            'token' => $request->token,
+            'response' => $event
+        ], 200);
     }
 }

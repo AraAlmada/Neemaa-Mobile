@@ -232,7 +232,7 @@
       </div>
     </div>
     <div data-ng-if="agendaPage()">
-      <button id="button-agenda-rdv"><i class="ion-plus-round"></i></button>
+      <button id="button-agenda-rdv" data-ng-click="agendaPlusAddEventNeem()"><i class="ion-plus-round"></i></button>
       <h4 class="white-text"><i class="ion-calendar"></i> Agenda</h4>
       <calendar calendar-mode="mode" event-source="eventSource" time-selected="onTimeSelected(selectedTime)"></calendar>
       <div class="row">
@@ -244,21 +244,21 @@
         </ul>
       </div>
     </div>
-    <div class="row" id="rdv" style="display: none">
+    <div class="row" id="rdv" data-ng-if="addEventModal" style="top: 20%;">
       <div id="rdv-cont">
         <span class="rdv-conte">Ajouter rendez-vous :</span>
-        <input class="rdv-conte" type="text" placeholder="Titre">
-        <input class="rdv-conte" type="date" placeholder="Date">
+        <input class="rdv-conte" type="text" placeholder="Titre" data-ng-model="agendaPageAddEvent.title">
+        <input class="rdv-conte" type="date" placeholder="Date" data-ng-model="agendaPageAddEvent.date">
         <span class="rdv-conte">De </span>
-        <input class="rdv-conte" type="time" placeholder="rdv-conte">
+        <input class="rdv-conte" type="time" placeholder="rdv-conte" data-ng-model="agendaPageAddEvent.begin">
         <span class="rdv-conte"> à </span>
-        <input class="rdv-conte" type="time" placeholder="time">
-        </div>
+        <input class="rdv-conte" type="time" placeholder="time" data-ng-model="agendaPageAddEvent.finish">
+      </div>
       <div>
-        <button class="button-rdv">Valider</button>
-        <button class="button-rdv">Retour</button>
+        <button class="button-rdv" data-ng-click="agendaPageAddEventConfirm(agendaPageAddEvent)">Valider</button>
+        <button class="button-rdv" data-ng-click="agendaReturnAddEventNeem()">Retour</button>
       </div>
-      </div>
+    </div>
     <div data-ng-if="agendaPageWeek()">
       Week page
     </div>
