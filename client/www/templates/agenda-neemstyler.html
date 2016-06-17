@@ -246,13 +246,14 @@
     </div>
     <div class="row" id="rdv" data-ng-if="addEventModal" style="top: 20%;">
       <div id="rdv-cont">
-        <span class="rdv-conte">Ajouter rendez-vous :</span>
-        <input class="rdv-conte" type="text" placeholder="Titre" data-ng-model="agendaPageAddEvent.title">
-        <input class="rdv-conte" type="date" placeholder="Date" data-ng-model="agendaPageAddEvent.date">
-        <span class="rdv-conte">De </span>
-        <input class="rdv-conte" type="time" placeholder="rdv-conte" data-ng-model="agendaPageAddEvent.begin">
-        <span class="rdv-conte"> à </span>
-        <input class="rdv-conte" type="time" placeholder="time" data-ng-model="agendaPageAddEvent.finish">
+        <span class="rdv-conte rdv-width">Ajouter rendez-vous :</span>
+        <input class="rdv-conte rdv-width" type="text" placeholder="Titre" data-ng-model="agendaPageAddEvent.title">
+        <select class="rdv-conte rdv-width"><option>Service</option></select>
+        <input class="rdv-conte rdv-width" type="date" placeholder="Date" data-ng-model="agendaPageAddEvent.date">
+        <span class="rdv-conte rdv-span">De </span>
+        <input class="rdv-input" type="time" placeholder="rdv-conte" data-ng-model="agendaPageAddEvent.begin">
+        <span class="rdv-span"> à </span>
+        <input class="rdv-input" type="time" placeholder="time" data-ng-model="agendaPageAddEvent.finish">
       </div>
       <div>
         <button class="button-rdv" data-ng-click="agendaPageAddEventConfirm(agendaPageAddEvent)">Valider</button>
