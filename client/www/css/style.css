@@ -257,6 +257,9 @@ a {
   .padtd {
     padding-left: 19% !important;
   }
+  .rdv-width {
+    width: 80% !important;
+  }
 }
 
 span{
@@ -421,6 +424,26 @@ th{
   border-radius: 5px;
   color: black;
 }
+
+.rdv-width{
+  width: 70%;
+}
+
+.rdv-input{
+  float: left;
+  margin: 5px 10px;
+  border-radius: 5px;
+  color: black;
+}
+
+.rdv-span{
+  float: left;
+  padding-top: 15px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  color: black;
+}
+
 
 #rdv-cont{
   width: 100%;
